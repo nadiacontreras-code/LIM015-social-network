@@ -34,5 +34,20 @@
   },
   "engines": {
     "node": ">=10"
-  }
+  },
+  "dependencies": {
+    "firebase": "^9.0.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariAguirre/LIM015-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/MariAguirre/LIM015-social-network/issues"
+  },
+  "homepage": "https://github.com/MariAguirre/LIM015-social-network#readme"
 }
