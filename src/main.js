@@ -12,6 +12,8 @@ const app = initializeApp(firebaseConfig);
 import { myFunction } from './lib/index.js';
 
 myFunction();
+
 //Esta linea es de practica de 
 
 // probando nadia
+
