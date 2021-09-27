@@ -9,9 +9,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 
-import { myFunction } from './lib/index.js';
+/* import { myFunction } from './lib/index.js';
 
-myFunction();
-//Esta linea es de practica de 
+myFunction(); */
 
-// probando nadia
+
+const rootSection = document.getElementById('root');
