@@ -8,7 +8,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-
 import { myFunction } from './lib/index.js';
 
 myFunction();
