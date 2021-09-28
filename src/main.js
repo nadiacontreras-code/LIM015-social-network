@@ -9,19 +9,23 @@ const app = initializeApp(firebaseConfig); */
 
 /* import { myFunction } from './lib/index.js';
 myFunction(); */
+const paginaInicio = document.getElementById('registroInicio');
 
 const rootSection = document.getElementById('root');
-const userContent = '<h1>User</h1>';
+const homeContent = '<h1>home</h1>';
 const logOutContent = '<h1>logOut<h1>';
+const profileContent = '<h1>perfil<h1>';
 
 const linkContent = {
-  '#user': userContent,
+  '#home': homeContent,
   '#logOut': logOutContent,
+  '#profile': profileContent,
 };
 
 const routes = {
-  '/': userContent,
+  '/': homeContent,
   '/logOut': logOutContent,
+  '/profile': profileContent,
 };
 
 // Mostrar HTML correcto al recargar la pagina
@@ -31,10 +35,12 @@ rootSection.innerHTML = routes[pathname];
 // Cambiar ruta en la URL para que no use el '#', ej. '/about'
 const changeRoute = (hash) => {
   // cambie la URL para no ocupar el '#'
-  if (hash === '#user') {
-    window.history.replaceState({}, 'user', '/');
+  if (hash === '#home') {
+    window.history.replaceState({}, 'home', '/');
+    paginaInicio.style.display = 'block';
   } else if (hash === '#logout') {
     window.history.replaceState({}, 'logout', '/logout');
+    paginaInicio.style.display = 'none';
   }
 };
 
