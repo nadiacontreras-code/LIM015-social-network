@@ -11,8 +11,8 @@ const app = initializeApp(firebaseConfig); */
 myFunction(); */
 
 
-const rootSection = document.getElementById('user');
-const homeContent = '<h1>User</h1>';
+const rootSection = document.getElementById('root');
+const userContent = '<h1>User</h1>';
 const logOutContent = '<h1>logOut<h1>';
 
 const linkContent = {
@@ -25,6 +25,22 @@ const routes = {
   '/logOut': logOutContent
 }
 
+
+
+//Mostrar HTML correcto al recargar la pagina
+const pathname = window.location.pathname;
+rootSection.innerHTML = routes[pathname];
+
+//Cambiar ruta en la URL para que no use el '#', ej. '/about'
+const changeRoute = (hash) => {
+  //cambie la URL para no ocupar el '#'
+  if(hash === '#user'){
+    window.history.replaceState({}, 'user', '/');
+  }else if(hash === '#logout'){
+    window.history.replaceState({}, 'logout', '/logout');
+  }
+}; 
+
 //Cambiar HTML al cliclea links (1):
 
 window.addEventListener('hashchange', () => {
@@ -35,19 +51,5 @@ window.addEventListener('hashchange', () => {
 
 window.onpopstate = () => {
   const pathname = window.location.pathname;
-  rootSection.innerHTML = routeContent[pathname];
+  rootSection.innerHTML = routes[pathname];
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
