@@ -1,12 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
-// import { initializeApp } from 'firebase/app';
 
-// TODO: Replace the following with your app's Firebase project configuration
-/* const firebaseConfig = {
-  //...
-}; */
-
-// const app = initializeApp(firebaseConfig);
+// Initialize Firebase
 
 /* import { myFunction } from './lib/index.js';
 
@@ -88,3 +82,7 @@ btnRegistro.addEventListener('click', () => {
   paginaInicio.style.display = 'none';
   document.getElementById('registroForm').style.display = 'block';
 });
+
+// Google Login
+const googleButton = document.querySelector('#googleLogin');
+googleButton.addEventListener('click');
