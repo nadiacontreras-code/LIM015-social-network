@@ -30,11 +30,14 @@
       <img id="image" src="img/logo.png.png" width="588px" height="300px">
       <br>
       <br>
-      <label id="inicio" >¡Bienvedid@s!</label><br><br>
+      <label id="inicio" >¡Bienvenid@s!</label><br><br>
       <input id="email" type="email" placeholder="Correo electronico"><br><br>
-      <input id="password" type="password" placeholder="Contraseña">
+      <input id="password" type="password" placeholder="Contraseña"><br><br>
       <button id="btnLogin" >Iniciar Sesion</button><br><br>
       <label>O bien ingresa con...</label><br><br>
+      <button type="button" class="btn btn-info btn-block" id="googleLogin">
+        Login with Google
+      </button><br><br>
       <img src="img/facebook.png" alt="" width="30px" height="30px">
       <img src="img/google-mas.png" alt="" width="30px" height="30px"><br><br>
       <label for="">¿No tienes cuenta?</label>
@@ -44,8 +47,15 @@
   <footer>
 
   </footer>
-  <script type="module" src="main.js"></script>
-  
+
+  <script type="module" src="./main.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/^9.0.2/firebase-app.js"></script>
+
+<script defer src="https://www.gstatic.com/firebasejs/^9.0.2/firebase-auth.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/^9.0.2/firebase-firestore.js"></script>
+
+<script defer src="../initFirebase.js"></script>
+
 </body>
 <p>Probando Footer</p>
 

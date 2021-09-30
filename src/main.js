@@ -1,22 +1,14 @@
 // Este es el punto de entrada de tu aplicacion
-//import { initializeApp } from 'firebase/app';
 
-//TODO: Replace the following with your app's Firebase project configuration
-/* const firebaseConfig = {
-  //...
-}; */
-
-//const app = initializeApp(firebaseConfig);
-
+// Initialize Firebase
 
 /* import { myFunction } from './lib/index.js';
 
 myFunction(); */
 
-
 const rootSection = document.getElementById('root');
 
-const homeContent = `<h1>Home</h1>`;
+const homeContent = '<h1>Home</h1>';
 const aboutContent = `<section id="secformulario">
                       <div class="div">
                       <span>Registrate</span>
@@ -39,23 +31,23 @@ const routes = {
   '/logout': aboutContent,
 };
 
-//Mostrar HTML correcto al recargar la pagina
+// Mostrar HTML correcto al recargar la pagina
 const pathname = window.location.pathname;
 rootSection.innerHTML = routes[pathname];
 
-//Cambiar ruta en la URL para que no use el '#', ej. '/about'
+// Cambiar ruta en la URL para que no use el '#', ej. '/about'
 const changeRoute = (hash) => {
-  //cambie la URL para no ocupar el '#'
-  if(hash === '#home'){
+  // cambie la URL para no ocupar el '#'
+  if (hash === '#home') {
     window.history.replaceState({}, 'home', '/');
-  }else if(hash === '#logout'){
+  } else if (hash === '#logout') {
     window.history.replaceState({}, 'logout', '/logout');
   }
-}; 
+};
 
 // Cambiar HTML al cliclea links (1):
 
-window.addEventListener('hashchange', () => { 
+window.addEventListener('hashchange', () => {
   document.getElementById('secinicio').style.display = 'none';
   const hash = window.location.hash;
   rootSection.innerHTML = linkContent[hash];
@@ -67,9 +59,11 @@ window.onpopstate = () => {
   rootSection.innerHTML = routes[pathnames];
 };
 
-
 const btnRegistro = document.querySelector('#btnRegistro');
-  btnRegistro.addEventListener('click', () => {
-    document.getElementById('secinicio').style.display = 'block';
-    
-});   
+btnRegistro.addEventListener('click', () => {
+  document.getElementById('secinicio').style.display = 'block';
+});
+
+// Google Login
+const googleButton = document.querySelector('#googleLogin');
+googleButton.addEventListener('click');
