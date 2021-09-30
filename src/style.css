@@ -1,20 +1,4 @@
-.headerName {
-  height: 100px;
-}
-nav {
-  float: right;
-  margin: 20px, 20px, 80px, 20px;
-}
-.navegador li {
-  list-style: none;
-  float: left;
-  padding: 33px 20px;
-}
-
-#logoAndText {
-  margin: 50px, 400px, 50px, 10px;
-}
-#secinicio {
-  margin: 80px, 40px, 10px, 800px;
-  background-color: bisque;
+#googleLogin {
+  background-color: rgb(231, 31, 31);
+  padding: 6px 10px;
 }

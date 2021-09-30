@@ -1,17 +1,10 @@
 // Este es el punto de entrada de tu aplicacion
-// import { initializeApp } from 'firebase/app';
 
-// TODO: Replace the following with your app's Firebase project configuration
-/* const firebaseConfig = {
-  //...
-}; */
-
-// const app = initializeApp(firebaseConfig);
+// Initialize Firebase
 
 /* import { myFunction } from './lib/index.js';
 
 myFunction(); */
-const paginaInicio = document.getElementById('registroInicio');
 
 const rootSection = document.getElementById('root');
 
@@ -49,7 +42,6 @@ const changeRoute = (hash) => {
     window.history.replaceState({}, 'home', '/');
   } else if (hash === '#logout') {
     window.history.replaceState({}, 'logout', '/logout');
-    paginaInicio.style.display = 'none';
   }
 };
 
@@ -71,3 +63,7 @@ const btnRegistro = document.querySelector('#btnRegistro');
 btnRegistro.addEventListener('click', () => {
   document.getElementById('secinicio').style.display = 'block';
 });
+
+// Google Login
+const googleButton = document.querySelector('#googleLogin');
+googleButton.addEventListener('click');
