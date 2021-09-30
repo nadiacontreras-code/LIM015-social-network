@@ -1,4 +1,4 @@
-import { loginTemple } from './lib/login';
+//import { loginTemple } from './lib/login';
 
 // aqui exportaras las funciones que necesites
 
