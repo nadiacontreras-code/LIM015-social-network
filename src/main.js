@@ -41,13 +41,6 @@ rootSection.innerHTML = routes[pathname];
 
 // Cambiar ruta en la URL para que no use el '#', ej. '/registration'
 const changeRoute = (hash) => {
-  // cambie la URL para no ocupar el '#'
-  /* if (hash === '#home') {
-    window.history.replaceState({}, 'home', '/');
-  } else if (hash === '#logout') {
-    window.history.replaceState({}, 'logout', '/logout');
-    paginaInicio.style.display = 'none';
-  } */
   switch (hash) {
     case '#home':
       window.history.replaceState({}, 'home', '/');
