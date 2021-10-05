@@ -1,4 +1,4 @@
-import { googleLogin } from '../firebase/firebase-fn.js';
+// import { googleLogin } from '../firebase/firebase-fn.js';
 /* const loginFirstTime = (user) => {
     if (user.metadata.creationTime === user.metadata.lastSignInTime) {
       window.location.hash = '#/home/profile/editprofile';
