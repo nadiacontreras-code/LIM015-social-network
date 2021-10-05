@@ -1,17 +1,14 @@
-import { loginTemple } from './lib/login';
+/* aqui vamos a crear el objeto que reuna a todos los
+ archivos de view para no exportarlas de Una en uno */
 
-// aqui exportaras las funciones que necesites
-
-
-// export const myFunction = () => {
-//   // aqui tu codigo
-//   console.log('Hola mundo!');
-// };
-// // probando que estoy aqui!!! :)
+import Home from './login.js';
+import Registro from './register.js';
+import Different from './error404.js';
 
 const components = {
-    login: loginTemple,
-}
+  home: Home,
+  registro: Registro,
+  different: Different,
+};
 
-
-export {components};
+export { components };

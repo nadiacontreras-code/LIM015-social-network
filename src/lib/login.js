@@ -1,27 +1,32 @@
-export const loginTemple = () => {
-    const login = `  <img id="image" src="img/logo.png.png" width="588px" height="300px">
-                                <br>
-                                <br>
-                                <label id="inicio" >¡Bienvedid@s!</label><br><br>
-                                <input id="email" type="email" placeholder="Correo electronico"><br><br>
-                                <input id="password" type="password" placeholder="Contraseña">
-                                <button id="btnLogin" >Iniciar Sesion</button><br><br>
-                                <label>O bien ingresa con...</label><br><br>
-                                <img src="img/facebook.png" id="" alt="" width="30px" height="30px">
-                                <img src="img/google-mas.png" id="loginGoogle" alt="" width="30px" height="30px"><br><br>
-                                <label for="">¿No tienes cuenta?</label>
-                                <a href="#logout">Registrate</a>`;
-    
-    const sectionAllLogin = document.createElement('section');
-    const sectionLogin = document.createElement('section');
-    sectionAllLogin.className = 'sectionAllLogin';
-    sectionLogin.className = 'sectionLogin';                  
-        
-    sectionAllLogin.appendChild(sectionLogin);
-    sectionLogin.innerHTML = login;
+export default () => {
+  const viewLogin = `
+  <section class= "logoLogin">
+  <img class="formLogoImg" src= "img/pruebLogo.png" alt="Logo3B"/><br><br>
+  </section>
+  <form class="formLogin" id="login">
+    <h1 class="formTitle">Login</h1>
+    <section class="formMesage formMesageError"></section>
+    <section class="formInputGroup">
+    <input type="text" class="formInput" autofocus placeholder="correo electronico "><br><br>
+        <section class="formInputErrorMessage"></section>
+    </section>
+    <section class="formInputGroup">
+    <input type="password" class="formInput" autofocus placeholder="Contraseña"><br><br>
+        <section class="formInputErrorMessage"></section>
+    </section>
+        <button class="formButton" type="submit">Iniciar Sesión</button>
+        <p class="formText"> O bien ingresa con...</p>
 
-    return sectionAllLogin; 
-  };
-  
+    <section class="formGoogle">
+        <img class="formGoogleImg" src= "img/googleIcono.png" alt="Iniciar sesion Google"/><br><br>
+    </section>
+        <p class="formText">No tienes una cuenta?
+        <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
+    </p>
+  </form>`;
 
- 
+  const secElement = document.createElement('section');
+  secElement.innerHTML = viewLogin;
+  // document.getElementById('container').appendChild(secElement);
+  return secElement;
+};
