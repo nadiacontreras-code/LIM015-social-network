@@ -1,11 +1,12 @@
-//import { loginTemple } from './lib/login';
+import { components } from './componentes.js';
 
-// aqui exportaras las funciones que necesites
+const changeRoute = (route) => {
+    const container = document.getElementById('root');
+    container.innerHTML = '';
+    switch (route) {
+        case '#/': { return container.appendChild(components.login()) }
 
+    }
+}
 
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
-};
-// probando que estoy aqui!!! :)
-
+export {changeRoute};
