@@ -2,3 +2,31 @@
     background-color: rgb(231, 31, 31);
     padding: 6px 10px;
 }
+#googleLogin {
+  background-color: rgb(231, 31, 31);
+  padding: 6px 10px;
+}
+li {
+  list-style: none;
+  float: left;
+  padding: 1% 5%;
+}
+
+header {
+  background-color: #f29bf3e5;
+  height: 50px;
+}
+.headerName {
+  font-size: 36px;
+  float: left;
+  padding: 1% 3% 3% 3%;
+}
+main {
+  background-color: white;
+  height: 600px;
+}
+
+footer {
+  background-color: #ceccf3;
+  height: 80px;
+}
