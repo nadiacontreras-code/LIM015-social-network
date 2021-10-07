@@ -1,3 +1,4 @@
+//import { registesUser } from '../firebase/firebase-fn.js';
 export default () => {
   const viewRegister = `
   <section class="logoForm">
@@ -15,11 +16,11 @@ export default () => {
         <section class="formInputErrorMessage"></section>
     </section>
     <section class="formInputGroup">
-        <input type="text" class="formInput" autofocus placeholder="Correo Electronico"><br><br>
+        <input type="text" class="formInput" id="emailRegister" autofocus placeholder="Correo Electronico"><br><br>
         <section class="formInputErrorMessage"></section>
     </section>
     <section class="formInputGroup">
-        <input type="password" class="formInput" autofocus placeholder="Contraseña"><br><br>
+        <input type="password" class="formInput" id="passwordRegister" autofocus placeholder="Contraseña"><br><br>
         <section class="formInputErrorMessage"></section>
     </section>
     <section class="formInputGroup">
@@ -36,4 +37,15 @@ export default () => {
   secElement.innerHTML = viewRegister;
   // document.getElementById('container').appendChild(secElement);
   return secElement;
+
+ 
 };
+
+/* const formRegister = secElement.viewRegister.querySelector('#createAccount')
+
+formRegister.addEventListener('submit', (event) => {
+    const emailRegister = document.getElementById('emailRegister').value;
+    const passwordRegister = document.getElementById('passwordRegister').value;
+    event.preventDefault();
+    registesUser(emailRegister.trim(), passwordRegister.trim());
+}) */
