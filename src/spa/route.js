@@ -13,9 +13,13 @@ import { components } from '../lib/componentes.js';
     case '':
     case '#':
     case '#/':
-      { return container.appendChild(components.home()); }
+      { return container.appendChild(components.login()); }
     case '#/registrate':
       { return container.appendChild(components.registro()); }
+    case '#/home':
+      { return container.appendChild(components.home()); }
+    case '#/profile':
+      { return container.appendChild(components.profile()); }
     default:
       { return container.appendChild(components.different()); }
   }
