@@ -1,4 +1,4 @@
-import { loginGoogle } from '../firebase/firebase-fn.js';
+//import { signInWithGoogle } from '../firebase/firebase-fn.js';
 
 export default () => {
   const viewLogin = `
@@ -92,14 +92,14 @@ export default () => {
   const buttonLogin = secElement.querySelector('.btnLoginGoogle');
   //const buttonLogout = secElement.querySelector('#btn-OutLog ');
   // let para mantener la variable del usuario logueado
-  let currentUser;
+  //let currentUser;
   // metodo para saber si el usuario esta logueado o no
-   firebase.auth().onAuthStateChanged((user) => {
+  /*  firebase.auth().onAuthStateChanged((user) => {
      if (user) {
        currentUser = user;
        console.log('Usuario logueado', currentUser.displayName);
      }
-   }); 
+   });  */
 
   /* buttonLogin.addEventListener('click', async (e) => {
     try {
@@ -109,9 +109,16 @@ export default () => {
     }
 
   }) */
-  buttonLogin.addEventListener('click', () => {
-    
-  })
+   buttonLogin.addEventListener('click', () => {
+    signInWithGoogle().then((userCredential) => {
+      const user = userCredential.user;
+      window.location.hash = '#/home';
+      return {
+        user,
+        userEmail: user.email,
+      }
+    })
+  }) 
 
 
 

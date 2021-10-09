@@ -7,7 +7,10 @@ export const validationEmail = () => firebase.auth().currentUser.sendEmailVerifi
    .createUserWithEmailAndPassword(email, password);
   
    
- 
+export const signInWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider(); // Proveedor de google
+  return firebase.auth().signInWithPopup(provider); // Popup, modal para selec cuenta google
+};
 
 
 
@@ -34,7 +37,7 @@ return loginwithGoogle;
 };   */
 
 // función para logearse con google
-const auth = firebase.auth();
+/* const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
  export async function loginGoogle() {
@@ -45,7 +48,7 @@ const provider = new firebase.auth.GoogleAuthProvider();
   } catch (error) {
     throw new Error(error);
   }
-} 
+}  */
 
 //console.log(login());
 
