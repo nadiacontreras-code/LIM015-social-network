@@ -1,32 +1,38 @@
 export default () => {
+  const loginSection = document.createElement('section');
+  loginSection.className = 'loginSection';
   const viewLogin = `
-  <section class= "secLogoLogin">
-  <img class="secLogoImg" src= "img/pruebLogo.png" alt="Logo3B"/><br>
-  </section>
-  <form class="formLogin" id="login">
+  <aside class="secLogo">
+  <img class="formLogo" src="img/pruebLogo.png" alt="Logo3B" /><br><br>
+  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  </aside>
+  <section class="loginSecForm">
+  <form class="loginform" id="login">
+    <section class="loginFormTitle">
     <h1 class="formTitle">Login</h1>
-    <section class="formMesage formMesageError"></section>
-    <section class="formInputGroup">
-    <input type="text" class="formInput" autofocus placeholder="correo electronico "><br>
-        <section class="formInputErrorMessage"></section>
     </section>
-    <section class="formInputGroup">
-    <input type="password" class="formInput" autofocus placeholder="Contraseña"><br>
-        <section class="formInputErrorMessage"></section>
+    <section class="formGroup">
+    <input type="text" class="formLogin" autofocus placeholder="correo electronico "><br>
+        <section class="formLoginErrorMessage"></section>
     </section>
-        <button class="formButton" type="submit">Iniciar Sesión</button>
-        <p class="formText"> O bien ingresa con...</p>
-
+    <section class="formGroup">
+        <input type="password" class="formLogin" autofocus placeholder="Contraseña"><br>
+        <section class="formLoginErrorMessage"></section>
+    </section>
+    <section class="formGroup">
+        <button id="loginFormBtn" class="formButton" type="submit">Iniciar Sesión</button><br><br>
+        <p class="formText"> O bien ingresa con...</p><br>
     <section class="formGoogle">
         <img class="formGoogleImg" src= "img/googleIcono.png" alt="Iniciar sesion Google"/><br>
     </section>
         <p class="formText">No tienes una cuenta?
         <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
     </p>
-  </form>`;
+    <section class="formGroup">
+  </form>
+  </section>`;
 
-  const secElement = document.createElement('section');
-  secElement.innerHTML = viewLogin;
+  loginSection.innerHTML = viewLogin;
   // document.getElementById('container').appendChild(secElement);
-  return secElement;
+  return loginSection;
 };

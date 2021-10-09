@@ -1,57 +1,55 @@
-import { registerUser } from '../firebase/firebase-fn';
+// import { registerUser } from '../firebase/firebase-fn';
 
 export default () => {
-  const viewRegister = `
-  <section class="secLogoLogin">
-  <img class="secLogoImg" src= "img/pruebLogo.png" alt="Logo3B"/><br><br>
-  </section>
-    <form class="formFormHidden" id="createAccount">
-    <h1 class="formTitle">¡Registrate en Get3B!</h1>
-    <section class="formMesage formMesageError"></section>
-    <section class="formInputGroup">
-        <input type="text" id="signupNombre" class="formInput" autofocus="autofocus" placeholder="Nombre"><br>
-        <section class="formInputErrorMessage"></section>
-    </section>
-    <section class="formInputGroup">
-        <input type="text" id="signupApellido" class="formInput" autofocus placeholder="Apellidos"><br>
-        <section class="formInputErrorMessage"></section>
-    </section>
-    <section class="formInputGroup">
-        <input type="text" class="formInput" autofocus placeholder="Correo Electronico"><br>
-        <section class="formInputErrorMessage"></section>
-    </section>
-    <section class="formInputGroup">
-        <input type="password" id ="firstPassword" class="formInput" autofocus placeholder="Contraseña"><br>
-        <section class="formInputErrorMessage"></section>
-    </section>
-    <section class="formInputGroup">
-        <input type="password"id ="secondPassword" class="formInput" autofocus placeholder="Confirmar contraseña"><br>
-        <section class="formInputErrorMessage"></section>
-    </section>
-    <button class="formButtonRegister" type="submit">Registrarse</button>
-    <p class="formText">Ya tienes cuenta?
-        <a class="formLink" href="#/" id="linkLogin"> Inicia Sesión</a>
-    </p>
-</form>`;
-  const secElement = document.createElement('section');
-  secElement.className = 'position'; // mejorar la clase
-  secElement.innerHTML = viewRegister;
-  // document.getElementById('container').appendChild(secElement);
-  // return secElement;
+  const registerSection = document.createElement('section');
+  registerSection.className = 'registerSection'; // mejorar la clase
 
-  const createAccount = secElement.getElementById('createAccount');
-  createAccount.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // trayendo info del usuario para
-    const emailRegister = createAccount.getElementById('signupNombre').value;
-    const passwordRegister = createAccount.getElementById('firstPassword').value;
-    /*  if (createAccount['firstPassword'].value == createAccount['SecondPassword'].value){
-     password.push(createAccount['formInput'].value);
- }else{
-   const messageError = createAccount['.formInputErrorMessage'];
-   messageError.innerHTML = " Tus contraseñas no coinciden";
-   password.push(messageError);
- } */
-    registerUser(emailRegister, passwordRegister)
-  });
+  const viewRegister = `
+  <aside class="secLogo">
+  <img class="formLogo" src="img/pruebLogo.png" alt="Logo3B" /><br><br>
+  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  </aside>
+  <section class="registerSecForm">
+  <form class="registerAccountForm" id="registerAccount">
+    <section class="registerFormTitle">
+    <h1 class="formTitle">¡Registrate en 3B!</h1>
+    </section>
+    <!-- mensaje de error -->
+    <section class="formGroup">
+      <input type="text" id="registerName" class="formRegister" autofocus="autofocus"
+      placeholder="Nombre"><br><br>
+      <section class="formRegisterErrorMessage"></section>
+    </section>
+    <section class="formGroup">
+      <input type="text" id="registerLastname" class="formRegister" autofocus
+      placeholder="Apellidos"><br><br>
+      <section class="formRegisterErrorMessage"></section>
+    </section>
+    <section class="formGroup">
+      <input type="text" id="registerEmail" class="formRegister" autofocus
+      placeholder="Correo Electronico"><br><br>
+      <section class="formRegisterErrorMessage"></section>
+    </section>
+    <section class="formGroup">
+      <input type="password" id="firstPassword" class="formRegister" autofocus
+      placeholder="Contraseña"><br><br>
+      <section class="formRegisterErrorMessage"></section>
+    </section>
+    <section class="formGroup">
+      <input type="password" id="secondPassword" class="formRegister" autofocus
+      placeholder="Confirmar contraseña"><br><br>
+    <section class="formRegisterErrorMessage"></section>
+    </section>
+    <section class="formGroup">
+    <button id="registerFormBtn" class="formButton" type="submit">Registrarse</button><br><br>
+    <p class="formText">Ya tienes cuenta?
+      <a class="loginLink" href="#/" id="linkLogin"> Inicia Sesión</a>
+    </p>
+    </section>
+  </form>
+  </section>`;
+
+  registerSection.innerHTML = viewRegister;
+
+  return registerSection;
 };

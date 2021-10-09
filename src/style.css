@@ -2,16 +2,18 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  *box-sizing: border-box;
 }
 #googleLogin {
   background-color: rgb(231, 31, 31);
   padding: 6px 10px;
 }
 /********************* BODY *******************/
+html,
 body {
   margin: 0;
-  margin-bottom: 40px;
+  *margin-bottom: 40px;
+  *height: 100%;
 }
 
 /********************* HEADER *******************/
@@ -29,7 +31,7 @@ header {
   margin: 20px 30px;
 }
 /********************* NAVEGADOR *******************/
-.navegador {
+/* .navegador {
   *float: right;
   *overflow: hidden;
   display: flex;
@@ -39,7 +41,7 @@ header {
   float: right;
   padding: 1% 5%;
   margin-right: 40px;
-}
+} */
 /******************** MAIN *********************/
 main {
   display: flex;
@@ -48,18 +50,19 @@ main {
   height: 100%;
   width: 100%;
 }
-/******************** LOGIN *********************/
-.secLogoLogin {
-  text-align: center;
-}
+/******************** REGISTER/LOGIN*********************/
 
-.secLogoImg {
-  width: 60%;
-  height: 60%;
+.secLogo {
+  justify-content: center;
+  margin: 0px 10%;
+}
+.formTitle {
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 @media screen and (min-width: 1200px) {
-  .secLogoLogin {
+  .secLogo {
     *text-align: center;
     display: flex;
     *justify-content: left;
@@ -67,8 +70,25 @@ main {
   }
 }
 
+.formLogo {
+  width: 60%;
+  height: 60%;
+  text-align: center;
+}
+@media screen and (min-width: 1200px) {
+  .formLogo {
+    *text-align: center;
+    display: flex;
+    *justify-content: left;
+    *position: left;
+  }
+}
+.formGroup {
+  margin: 10px;
+}
+
 @media screen and (min-width: 200px) {
-  .formLogin {
+  .formGroup {
     text-align: center;
     font-size: 20px;
   }
@@ -79,7 +99,7 @@ main {
   }
 }
 @media screen and (min-width: 1000px) {
-  .formLogin {
+  .formLogin .formRegister {
     text-align: center;
     font-size: 30px;
     *display: flex;
@@ -99,8 +119,13 @@ main {
   position: center;
 }
 
-.formFormHidden {
-  text-align: center;
+.registerAccountForm .loginSecForm {
+  align-content: center;
+  position: center;
+}
+.registerSecion .loginSection {
+  align-content: center;
+  position: center;
 }
 
 /********************FOOTER*********************/
