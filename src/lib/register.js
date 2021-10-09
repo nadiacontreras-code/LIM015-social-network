@@ -58,7 +58,7 @@ export default () => {
 
   return registerSection;
 
-</form>`;
+
   const secElement = document.createElement('section');
   secElement.className = 'position'; // mejorar la clase
   secElement.innerHTML = viewRegister;

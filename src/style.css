@@ -24,7 +24,7 @@ header {
   height: 50px;
   *display: flex;
   *justify-content: center;
-
+}
 
 .headerName {
   font-size: 30px;
@@ -104,6 +104,7 @@ main {
   *justify-content: center;
   margin: 10% 15% 0% 20%;
 }
+}
 
 /******************** LOGIN *********************/
 @media screen and (min-width: 76px) {
@@ -121,8 +122,7 @@ main {
 @media screen and (min-width: 1000px) {
 
   .formLogin .formRegister {
-
-  header {  
+  
     background-color: #d3057de5;
     height: 50px 0%;
     display: flex;
