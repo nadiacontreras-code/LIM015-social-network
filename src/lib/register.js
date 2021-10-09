@@ -1,6 +1,4 @@
-
 // import { registerUser } from '../firebase/firebase-fn';
-
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -8,7 +6,7 @@ export default () => {
 
   const viewRegister = `
   <aside class="secLogo">
-  <img class="formLogo" src="img/pruebLogo.png" alt="Logo3B" /><br><br>
+  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
   <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
   </aside>
   <section class="registerSecForm">
@@ -57,16 +55,6 @@ export default () => {
   registerSection.innerHTML = viewRegister;
 
   return registerSection;
-
-
-  const secElement = document.createElement('section');
-  secElement.className = 'position'; // mejorar la clase
-  secElement.innerHTML = viewRegister;
-  // document.getElementById('container').appendChild(secElement);
-  return secElement;
-
- 
-
 };
 
 /* const formRegister = secElement.viewRegister.querySelector('#createAccount')

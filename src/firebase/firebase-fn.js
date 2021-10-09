@@ -29,7 +29,9 @@ createUserWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
     // ..
   }); */
-
+/* **********Función para registrar usuario********** */
+/* export const registerUser = (email, password) => firebase.auth()
+.createUserWithEmailAndPassword(email, password); */
 export const registerUser = (email, password) => {
   // console.log(email, password);
   firebase.auth().createUserWithEmailAndPassword(email, password)
