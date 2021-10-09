@@ -1,4 +1,4 @@
-//import {registerUser} from '../firebase/firebase-fn.js';
+// import {registerUser} from '../firebase/firebase-fn.js';
 
 export default () => {
   const loginSection = document.createElement('section');
@@ -42,24 +42,15 @@ export default () => {
   // document.getElementById('container').appendChild(secElement);
 
   return loginSection;
- 
 
-
- /*   const btnRegistro = secElement.querySelector('.btnRegistro');
+/*   const btnRegistro = secElement.querySelector('.btnRegistro');
    const emailRegister = document.getElementById('emailRegister');
    const passwordRegister = document.getElementById('passwordRegister');
 
-
-    btnRegistro.addEventListener('click', (event) => {       
+    btnRegistro.addEventListener('click', (event) => {
         event.preventDefault();
         registerUser(emailRegister.value.trim(), passwordRegister.value.trim());
         console.log(emailRegister,passwordRegister);
 
     })  */
-
-
-
-
 };
-
-

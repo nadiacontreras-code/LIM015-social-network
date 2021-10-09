@@ -1,3 +1,21 @@
+// función para logearse con google
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+
+export async function login() {
+  try {
+    const response = await auth.signInWithPopup(provider);
+    console.log(response);
+    return response.user;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+// funcion para cerrar sesion
+export function logout() {
+  firebase.auth().signOut();
+}
 
 /* const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
@@ -30,9 +48,7 @@ export const registerUser = (email, password) => {
     });
 };
 
-
-
- /* export const registesUser = (email, password) => {
+/* export const registesUser = (email, password) => {
    firebase
    .auth()
    .createUserWithEmailAndPassword(email, password)
@@ -45,7 +61,7 @@ m })
     })
  }; */
 
- /* **********Función para registrar usuario********** */
+/* **********Función para registrar usuario********** */
 /* export const registerUser = (email, password) => firebase.auth()
 .createUserWithEmailAndPassword(email, password); */
 
@@ -63,8 +79,3 @@ const providerGoogle = new firebase.auth.GoogleAuthProvider();
 const loginwithGoogle = firebase.auth().signInWithPopup(providerGoogle);
 return loginwithGoogle;
 }; */
-
-
-
-
-
