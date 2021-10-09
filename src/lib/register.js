@@ -1,4 +1,6 @@
+
 // import { registerUser } from '../firebase/firebase-fn';
+
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -20,6 +22,7 @@ export default () => {
       placeholder="Nombre"><br><br>
       <section class="formRegisterErrorMessage"></section>
     </section>
+
     <section class="formGroup">
       <input type="text" id="registerLastname" class="formRegister" autofocus
       placeholder="Apellidos"><br><br>
@@ -29,6 +32,7 @@ export default () => {
       <input type="text" id="registerEmail" class="formRegister" autofocus
       placeholder="Correo Electronico"><br><br>
       <section class="formRegisterErrorMessage"></section>
+
     </section>
     <section class="formGroup">
       <input type="password" id="firstPassword" class="formRegister" autofocus
@@ -45,6 +49,7 @@ export default () => {
     <p class="formText">Ya tienes cuenta?
       <a class="loginLink" href="#/" id="linkLogin"> Inicia Sesión</a>
     </p>
+
     </section>
   </form>
   </section>`;
@@ -52,4 +57,23 @@ export default () => {
   registerSection.innerHTML = viewRegister;
 
   return registerSection;
+
+</form>`;
+  const secElement = document.createElement('section');
+  secElement.className = 'position'; // mejorar la clase
+  secElement.innerHTML = viewRegister;
+  // document.getElementById('container').appendChild(secElement);
+  return secElement;
+
+ 
+
 };
+
+/* const formRegister = secElement.viewRegister.querySelector('#createAccount')
+
+formRegister.addEventListener('submit', (event) => {
+    const emailRegister = document.getElementById('emailRegister').value;
+    const passwordRegister = document.getElementById('passwordRegister').value;
+    event.preventDefault();
+    registesUser(emailRegister.trim(), passwordRegister.trim());
+}) */
