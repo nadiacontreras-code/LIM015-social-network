@@ -1,25 +1,5 @@
-// import { googleLogin } from '../firebase/firebase-fn.js';
-/* const loginFirstTime = (user) => {
-    if (user.metadata.creationTime === user.metadata.lastSignInTime) {
-      window.location.hash = '#/home/profile/editprofile';
-    } else {
-      window.location.hash = '#/home';
-    }
-  };
- const redirectGoogle = (container) => {
-    const googleBtn = container.querySelector('.googleButton');
-    googleBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      googleLogin()
-        .then((userCredential) => {
-          localStorage.setItem('user', JSON.stringify(userCredential.user));
-          loginFirstTime(userCredential.user);
-        });
-    });
-  };
-  return redirectGoogle;
+// import { login } from '../firebase/firebase-fn.js';
 
-  export {redirectGoogle} */
 export default () => {
   const viewLogin = `
     <form class="form" id="login">
@@ -40,10 +20,11 @@ export default () => {
     <p class="formText">
         <a class="formLink" href="#/registrate" id="linkCreateAccount">No tienes una cuenta?<span> Registrate<span></a>
     </p>
-</form>`;
+    </form>`;
 
   const secElement = document.createElement('section');
   secElement.innerHTML = viewLogin;
   // document.getElementById('container').appendChild(secElement);
+
   return secElement;
 };

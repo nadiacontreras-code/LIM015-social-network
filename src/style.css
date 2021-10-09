@@ -103,3 +103,6 @@ footer {
   background-color: #ceccf3;
   height: 80px;
 }
+.hidden {
+  display: none;
+}
