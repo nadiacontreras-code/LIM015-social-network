@@ -18,4 +18,6 @@ import { changeView } from './spa/route.js';
 };
 window.addEventListener('load', init);
 
-//console.log(firebase);
+
+// console.log(firebase, 21);
+

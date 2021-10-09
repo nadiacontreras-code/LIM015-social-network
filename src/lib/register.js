@@ -1,36 +1,63 @@
-//import { registesUser } from '../firebase/firebase-fn.js';
+
+// import { registerUser } from '../firebase/firebase-fn';
+
+
 export default () => {
+  const registerSection = document.createElement('section');
+  registerSection.className = 'registerSection'; // mejorar la clase
+
   const viewRegister = `
-  <section class="logoForm">
-  <img class="formLogoImg" src= "img/pruebLogo.png" alt="Logo3B"/><br><br>
-  </section>
-    <form class="form formHidden" id="createAccount">
-    <h1 class="formTitle">¡Registrate en Get3B!</h1>
-    <section class="formMesage formMesageError"></section>
-    <section class="formInputGroup">
-        <input type="text" id="signupNombre" class="formInput" autofocus="autofocus" placeholder="Nombre"><br><br>
-        <section class="formInputErrorMessage"></section>
+  <aside class="secLogo">
+  <img class="formLogo" src="img/pruebLogo.png" alt="Logo3B" /><br><br>
+  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  </aside>
+  <section class="registerSecForm">
+  <form class="registerAccountForm" id="registerAccount">
+    <section class="registerFormTitle">
+    <h1 class="formTitle">¡Registrate en 3B!</h1>
     </section>
-    <section class="formInputGroup">
-        <input type="text" id="signupApellido" class="formInput" autofocus placeholder="Apellido"><br><br>
-        <section class="formInputErrorMessage"></section>
+    <!-- mensaje de error -->
+    <section class="formGroup">
+      <input type="text" id="registerName" class="formRegister" autofocus="autofocus"
+      placeholder="Nombre"><br><br>
+      <section class="formRegisterErrorMessage"></section>
     </section>
-    <section class="formInputGroup">
-        <input type="text" class="formInput" id="emailRegister" autofocus placeholder="Correo Electronico"><br><br>
-        <section class="formInputErrorMessage"></section>
+
+    <section class="formGroup">
+      <input type="text" id="registerLastname" class="formRegister" autofocus
+      placeholder="Apellidos"><br><br>
+      <section class="formRegisterErrorMessage"></section>
     </section>
-    <section class="formInputGroup">
-        <input type="password" class="formInput" id="passwordRegister" autofocus placeholder="Contraseña"><br><br>
-        <section class="formInputErrorMessage"></section>
+    <section class="formGroup">
+      <input type="text" id="registerEmail" class="formRegister" autofocus
+      placeholder="Correo Electronico"><br><br>
+      <section class="formRegisterErrorMessage"></section>
+
     </section>
-    <section class="formInputGroup">
-        <input type="password" class="formInput" autofocus placeholder="Confirmar contraseña"><br><br>
-        <section class="formInputErrorMessage"></section>
+    <section class="formGroup">
+      <input type="password" id="firstPassword" class="formRegister" autofocus
+      placeholder="Contraseña"><br><br>
+      <section class="formRegisterErrorMessage"></section>
     </section>
-    <button class="formButtonRegister" type="submit">Registrarse</button>
+    <section class="formGroup">
+      <input type="password" id="secondPassword" class="formRegister" autofocus
+      placeholder="Confirmar contraseña"><br><br>
+    <section class="formRegisterErrorMessage"></section>
+    </section>
+    <section class="formGroup">
+    <button id="registerFormBtn" class="formButton" type="submit">Registrarse</button><br><br>
     <p class="formText">Ya tienes cuenta?
-        <a class="formLink" href="#/" id="linkLogin"> Inicia Sesión</a>
+      <a class="loginLink" href="#/" id="linkLogin"> Inicia Sesión</a>
     </p>
+
+    </section>
+  </form>
+  </section>`;
+
+  registerSection.innerHTML = viewRegister;
+
+  return registerSection;
+
 </form>`;
   const secElement = document.createElement('section');
   secElement.className = 'position'; // mejorar la clase
@@ -39,6 +66,7 @@ export default () => {
   return secElement;
 
  
+
 };
 
 /* const formRegister = secElement.viewRegister.querySelector('#createAccount')
