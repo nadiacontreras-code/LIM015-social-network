@@ -1,4 +1,3 @@
-
 /* const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -30,22 +29,20 @@ export const registerUser = (email, password) => {
     });
 };
 
-
-
- /* export const registesUser = (email, password) => {
-   firebase
-   .auth()
-   .createUserWithEmailAndPassword(email, password)
-   .then((userCredential) => {
-     console.log(userCredential.user);
+/* export const registesUser = (email, password) => {
+  firebase
+  .auth()
+  .createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    console.log(userCredential.user);
 m })
     .catch((error) => {
       console.log('error', error.message)
 
-    })
- }; */
+})
+}; */
 
- /* **********Función para registrar usuario********** */
+/* **********Función para registrar usuario********** */
 /* export const registerUser = (email, password) => firebase.auth()
 .createUserWithEmailAndPassword(email, password); */
 
@@ -63,8 +60,3 @@ const providerGoogle = new firebase.auth.GoogleAuthProvider();
 const loginwithGoogle = firebase.auth().signInWithPopup(providerGoogle);
 return loginwithGoogle;
 }; */
-
-
-
-
-

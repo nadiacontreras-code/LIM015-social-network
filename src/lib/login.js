@@ -1,4 +1,4 @@
-//import {registerUser} from '../firebase/firebase-fn.js';
+// import {registerUser} from '../firebase/firebase-fn.js';
 
 export default () => {
   const loginSection = document.createElement('section');
@@ -6,7 +6,7 @@ export default () => {
   const viewLogin = `
 
   <aside class="secLogo">
-  <img class="formLogo" src="img/pruebLogo.png" alt="Logo3B" /><br><br>
+  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
   <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
   </aside>
   <section class="loginSecForm">
@@ -42,24 +42,13 @@ export default () => {
   // document.getElementById('container').appendChild(secElement);
 
   return loginSection;
- 
 
-
- /*   const btnRegistro = secElement.querySelector('.btnRegistro');
-   const emailRegister = document.getElementById('emailRegister');
-   const passwordRegister = document.getElementById('passwordRegister');
-
-
-    btnRegistro.addEventListener('click', (event) => {       
-        event.preventDefault();
-        registerUser(emailRegister.value.trim(), passwordRegister.value.trim());
-        console.log(emailRegister,passwordRegister);
-
+  /*   const btnRegistro = secElement.querySelector('.btnRegistro');
+    const emailRegister = document.getElementById('emailRegister');
+    const passwordRegister = document.getElementById('passwordRegister');
+    btnRegistro.addEventListener('click', (event) => {
+      event.preventDefault();
+      registerUser(emailRegister.value.trim(), passwordRegister.value.trim());
+      console.log(emailRegister,passwordRegister);
     })  */
-
-
-
-
 };
-
-
