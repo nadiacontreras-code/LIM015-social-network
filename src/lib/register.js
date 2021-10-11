@@ -1,52 +1,67 @@
 import { registerUser, validationEmail } from '../firebase/firebase-fn.js';
 export default () => {
+  const registerSection = document.createElement('section');
+  registerSection.className = 'registerSection'; // mejorar la clase
+
   const viewRegister = `
-  <section class="logoForm">
-  <img class="formLogoImg" src= "img/logo_muñeca.png" alt="Logo3B"/><br><br>
-  </section>
-    <form class="form formHidden" id="createAccount">
-    <h1 class="formTitle">¡Registrate en Get3B!</h1>
-    <section class="formMesage formMesageError"></section>
-    <section class="formInputGroup">
-        <input type="text" id="signupNombre" class="formInput" autofocus="autofocus" placeholder="Nombre"><br><br>
-        <section class="messagename"></section>
+  <aside class="secLogo">
+  <img class="formLogo" src="img/pruebLogo.png" alt="Logo3B" /><br><br>
+  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  </aside>
+  <section class="registerSecForm">
+  <form class="registerAccountForm" id="registerAccount">
+    <section class="registerFormTitle">
+    <h1 class="formTitle">¡Registrate en 3B!</h1>
     </section>
-    <section class="formInputGroup">
-        <input type="text" id="signupApellido" class="formInput" autofocus placeholder="Apellido"><br><br>
-        <section class="messageape"></section>
+    <!-- mensaje de error -->
+    <section class="formGroup">
+      <input type="text" id="registerName" class="formRegister" autofocus="autofocus"
+      placeholder="Nombre"><br><br>
+      <section class="formRegisterErrorMessage"></section>
     </section>
-    <section class="formInputGroup">
-        <input type="text" class="formInput" id="emailRegister" autofocus placeholder="Correo Electronico"><br><br>
-        <section class="messageemail"></section>
+    <section class="formGroup">
+      <input type="text" id="registerLastname" class="formRegister" autofocus
+      placeholder="Apellidos"><br><br>
+      <section class="formRegisterErrorMessage"></section>
     </section>
-    <section class="formInputGroup">
-        <input type="password" class="formInput" id="passwordRegister" autofocus placeholder="Contraseña"><br><br>
-        <section class="messagepassword"></section>
+    <section class="formGroup">
+      <input type="text" id="registerEmail" class="formRegister" autofocus
+      placeholder="Correo Electronico"><br><br>
+      <section class="formRegisterErrorMessage"></section>    
+    <section class="formGroup">
+      <input type="password" id="firstPassword" class="formRegister" autofocus
+      placeholder="Contraseña"><br><br>
+      <section class="formRegisterErrorMessage"></section>
     </section>
-    <section class="formInputGroup">
-        <input type="password" class="formInput" id="confirPassword" autofocus placeholder="Confirmar contraseña"><br><br>
-        <section class="message"></section>
+    <section class="formGroup">
+      <input type="password" id="secondPassword" class="formRegister" autofocus
+      placeholder="Confirmar contraseña"><br><br>
+    <section class="formRegisterErrorMessage"></section>
     </section>
-    <button class="btnRegister" type="submit">Registrarse</button>
+    <section class="formGroup">
+    <button id="registerFormBtn" class="formButton" type="submit">Registrarse</button><br><br>
     <p class="formText">Ya tienes cuenta?
-        <a class="formLink" href="#/" id="linkLogin"> Inicia Sesión</a>
+      <a class="loginLink" href="#/" id="linkLogin"> Inicia Sesión</a>
     </p>
-</form>`;
-  const secElement = document.createElement('section');
-  secElement.className = 'position'; // mejorar la clase
-  secElement.innerHTML = viewRegister;
-  // document.getElementById('container').appendChild(secElement);
+
+    </section>
+  </form>
+  </section>`;
+
+  registerSection.innerHTML = viewRegister;
   
 
  
 
 
-const btnRegister = secElement.querySelector('.btnRegister');
+const btnRegister = registerSection.querySelector('.registerFormBtn');
 
 btnRegister.addEventListener('click', (event) => {
-    const emailRegister = document.getElementById('emailRegister').value;
-    const passwordRegister = document.getElementById('passwordRegister').value;
-    const confirPassword = secElement.querySelector('#confirPassword').value;
+    const nameRegister = registerSection.querySelector('#registerName').value;
+    const lastnameRegister = registerSection.querySelector('#registerLastname')
+    const emailRegister = registerSection.querySelector('#registerEmail').value;
+    const passwordRegister = registerSection.querySelector('#firstPassword').value;
+    const confirPassword = registerSection.querySelector('#secondPassword').value;
     const message= secElement.querySelector('.message');    
     event.preventDefault();
     event.stopPropagation();
@@ -54,7 +69,7 @@ btnRegister.addEventListener('click', (event) => {
     ;
 
      //Cuando los campos son vacios
-     if (emailRegister === '' || passwordRegister === '' || confirPassword === '') {
+     if (emailRegister === '' || passwordRegister === '' || confirPassword === '' || nameRegister === '' || lastnameRegister === '') {
       message.innerHTML = 'Porfavor llene los campos'; 
     } else  if (passwordRegister !== confirPassword) {
       message.innerHTML = 'Las contraseñas no coinciden';
@@ -87,3 +102,7 @@ btnRegister.addEventListener('click', (event) => {
 
 return secElement;
 };
+
+
+
+

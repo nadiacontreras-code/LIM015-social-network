@@ -1,11 +1,17 @@
 //import { signInWithGoogle } from '../firebase/firebase-fn.js';
 
 export default () => {
+  const loginSection = document.createElement('section');
+  loginSection.className = 'loginSection';
   const viewLogin = `
-  <section class= "logoLogin">
-  <img class="formLogoImg" src= "img/logo_muñeca.png" alt="Logo3B"/><br>
-  </section>
-  <form class="formLogin" id="login">
+
+  <aside class="secLogo">
+  <img class="formLogo" src="img/pruebLogo.png" alt="Logo3B" /><br><br>
+  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  </aside>
+  <section class="loginSecForm">
+  <form class="loginform" id="login">
+    <section class="loginFormTitle">
     <h1 class="formTitle">Login</h1>
     <section class="formMesage formMesageError"></section>
     <section class="formInputGroup">
@@ -26,26 +32,28 @@ export default () => {
         <p class="formText">No tienes una cuenta?
         <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
     </p>
-  </form>`;
+    <section class="formGroup">
+  </form>
+  </section>`;
 
-  const secElement = document.createElement('section');
-  secElement.innerHTML = viewLogin;
+  loginSection.innerHTML = viewLogin;
   // document.getElementById('container').appendChild(secElement);
 
+  
 
 
 
-  const btnLogin = secElement.querySelector('.btnLogin');
+  const btnLogin = loginSection.querySelector('.btnGoogleImg');
   //const emailRegister = document.getElementById('emailLogin');
   //const passwordRegister = document.getElementById('passwordLogin');
 
 
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
-    const emailLogin = secElement.querySelector('#emailLogin').value;
-    const passwordLogin = secElement.querySelector('#passwordLogin').value;
-    const errorEmailLogin = secElement.querySelector('.errorEmailLogin');
-    const errorPasswordLogin = secElement.querySelector('.errorPasswordLogin');
+    const emailLogin = loginSection.querySelector('#emailLogin').value;
+    const passwordLogin = loginSection.querySelector('#passwordLogin').value;
+    const errorEmailLogin = loginSection.querySelector('.errorEmailLogin');
+    const errorPasswordLogin = loginSection.querySelector('.errorPasswordLogin');
 
     //Cuando los campos son vacios
     if (emailLogin === '') {
@@ -62,70 +70,15 @@ export default () => {
     }
 
 
-
-
-    /* loginUser(emailLogin.trim(), passwordLogin.trim());
-
-    console.log(loginUser()); */
-
   })
 
-  /*  const btnGoogle = secElement.querySelector('.btnGoogleImg');
-  btnGoogle.addEventListener('click', () => {
-    loginGoogle()
-      .then((result) => {
-        const credential = result.credential;
-        const token = credential.accessToken;
-        const user = result.user;
-        //addDataUser(result.user);
-        window.location.hash = '#/';
-      }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = error.credential;
-      })
-      console.log(loginGoogle());
-   
-  });  */
-
-  const buttonLogin = secElement.querySelector('.btnLoginGoogle');
-  //const buttonLogout = secElement.querySelector('#btn-OutLog ');
-  // let para mantener la variable del usuario logueado
-  //let currentUser;
-  // metodo para saber si el usuario esta logueado o no
-  /*  firebase.auth().onAuthStateChanged((user) => {
-     if (user) {
-       currentUser = user;
-       console.log('Usuario logueado', currentUser.displayName);
-     }
-   });  */
-
-  /* buttonLogin.addEventListener('click', async (e) => {
-    try {
-      currentUser = await loginGoogle();
-    } catch (error) {
-      console.log(e);
-    }
-
-  }) */
-   buttonLogin.addEventListener('click', () => {
-    signInWithGoogle().then((userCredential) => {
-      const user = userCredential.user;
-      window.location.hash = '#/home';
-      return {
-        user,
-        userEmail: user.email,
-      }
-    })
-  }) 
+ 
 
 
 
 
 
 
-  return secElement;
+
+  return loginSection;
 };
-
-
