@@ -1,4 +1,4 @@
-// import {registerUser} from '../firebase/firebase-fn.js';
+ import {loginGoogle, loginUser} from '../firebase/firebase-fn.js';
 
 export default () => {
   const loginSection = document.createElement('section');
@@ -53,9 +53,8 @@ export default () => {
     function messageError(indice, message) {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
-    const loginUser = (email, password) => {
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
+    loginUser(loginEmail.trim(), loginPassword.trim())
+     .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
           console.log(user, 59);
@@ -84,8 +83,19 @@ export default () => {
               messageError(0, error.message);
           }
         });
-    };
-    loginUser(loginEmail.trim(), loginPassword.trim());
+    
+    //loginUser(loginEmail.trim(), loginPassword.trim());
+  });
+
+  const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
+
+  btnLoginGoogle. addEventListener('click', (e) => {
+    e.preventDefault();
+    loginGoogle().then(() => {
+      window.location.hash = '#/profile';
+    }).catch((error) => {
+      console.log(error);
+    });
   });
 
   return loginSection;

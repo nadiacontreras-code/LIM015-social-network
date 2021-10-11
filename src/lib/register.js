@@ -1,4 +1,4 @@
-// import { registerUser } from '../firebase/firebase-fn';
+ import {registerUser} from '../firebase/firebase-fn.js';
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -58,7 +58,7 @@ export default () => {
   // const registerFormBtn = registerSection.querySelector('#registerFormBtn');
   const registerAccount = registerSection.querySelector('#registerAccount');
 
-  registerAccount.addEventListener('submit', (event) => {
+   registerAccount.addEventListener('submit', (event) => {
     event.preventDefault();
     const registerName = registerSection.querySelector('#registerName').value;
     const registerLastname = registerSection.querySelector('#registerLastname').value;
@@ -79,9 +79,7 @@ export default () => {
       messageError(5, 'Las contraseñas NO coinciden');
       // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
     } else {
-      const registerUser = (email, password) => {
-        // console.log(email, password);
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+       registerUser(registerEmail.trim(), registerPassword.trim())
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
@@ -103,9 +101,9 @@ export default () => {
             }
           });
       };
-      registerUser(registerEmail.trim(), registerPassword.trim());
-    }
+     
+    
   });
-
+ 
   return registerSection;
 };
