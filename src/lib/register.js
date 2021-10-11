@@ -1,4 +1,6 @@
-import { registerUser, validationEmail } from '../firebase/firebase-fn.js';
+import { logout, registerUser } from '../firebase/firebase-fn.js';
+import { changeView } from '../spa/route.js';
+
 export default () => {
   const registerSection = document.createElement('section');
   registerSection.className = 'registerSection'; // mejorar la clase
@@ -36,10 +38,10 @@ export default () => {
     <section class="formGroup">
       <input type="password" id="secondPassword" class="formRegister" autofocus
       placeholder="Confirmar contraseña"><br><br>
-    <section class="formRegisterErrorMessage"></section>
+    <p id="message"></p>
     </section>
     <section class="formGroup">
-    <button id="registerFormBtn" class="formButton" type="submit">Registrarse</button><br><br>
+    <button id="registerFormBtn" class="formButton" type="button">Registrarse</button><br><br>
     <p class="formText">Ya tienes cuenta?
       <a class="loginLink" href="#/" id="linkLogin"> Inicia Sesión</a>
     </p>
@@ -49,60 +51,69 @@ export default () => {
   </section>`;
 
   registerSection.innerHTML = viewRegister;
-  
 
+
+
+
+
+  const btnRegister = registerSection.querySelector('#registerFormBtn');
+  const formRegister = registerSection.querySelector('#registerAccount');
+  const nameRegister = registerSection.querySelector('#registerName').value;
+  const lastnameRegister = registerSection.querySelector('#registerLastname').value;
+  const emailRegister = registerSection.querySelector('#registerEmail');
+  const passwordRegister = registerSection.querySelector('#firstPassword');
+  const confirPassword = registerSection.querySelector('#secondPassword').value;
+  const message = registerSection.querySelector('#message');
+ 
+ 
+
+  btnRegister.addEventListener('click', () => {
+
+    //Cuando los campos son vacios
+    if (emailRegister === '' || passwordRegister === '' || confirPassword === '' || nameRegister === '' || lastnameRegister === '') {
+      message.innerHTML = 'Porfavor llene los campos';
+    } else if (passwordRegister !== confirPassword) {
+      message.innerHTML = 'Las contraseñas no coinciden';
+    } else {
+
+        
+        registerUser(emailRegister.value.trim(), passwordRegister.value.trim())       
+          .then((res) => {
+            const user = res.user;
+            user.updateProfile({
+              displayName: nameRegister,
+              displayLastName: lastnameRegister,
+            });
+            const changeRegister = { url: changeView('#/') };
+            user.sendEmailVerification(changeRegister)
+              .then(() => {
+                alert("Te enviamos un correo de verificación. Revisa tu bandeja de entrada");
+              }).catch((error) => {
+                console.log(error);
+              })
+            logout();
+            window.location.has = '#/';
+          }).catch((error) => {
+            if (error.code === 'auth/email-already-in-use') {
+              msgErrorRegister.textContent = 'El correo ya esta registrado. Por favor intenta con otro correo.';
+            } else {
+              msgErrorRegister.textContent = 'Ha ocurrido un error. Intenta otra vez.';
+            }
+
+          });
+       
+        
+
+      }
+      console.log(registerUser());
  
 
 
-const btnRegister = registerSection.querySelector('.registerFormBtn');
 
-btnRegister.addEventListener('click', (event) => {
-    const nameRegister = registerSection.querySelector('#registerName').value;
-    const lastnameRegister = registerSection.querySelector('#registerLastname')
-    const emailRegister = registerSection.querySelector('#registerEmail').value;
-    const passwordRegister = registerSection.querySelector('#firstPassword').value;
-    const confirPassword = registerSection.querySelector('#secondPassword').value;
-    const message= secElement.querySelector('.message');    
-    event.preventDefault();
-    event.stopPropagation();
-    message.innerHTML = '';
-    ;
+});
 
-     //Cuando los campos son vacios
-     if (emailRegister === '' || passwordRegister === '' || confirPassword === '' || nameRegister === '' || lastnameRegister === '') {
-      message.innerHTML = 'Porfavor llene los campos'; 
-    } else  if (passwordRegister !== confirPassword) {
-      message.innerHTML = 'Las contraseñas no coinciden';
-    } else {
-      registerUser(emailRegister.trim(), passwordRegister.trim())
-      .then((response) => {
-        validationEmail();
-        sessionStorage.setItem('nameRegister', emailRegister);
-        window.location.hash = '#/';
-        window.alert('mensaje de verificación enviado');
-      })
-      .catch((error) => {
-        //console.log(error);
-        const errorCode = error.code;
-        if(errorCode === 'auth/email-already-in-use'){
-          message.innerHTML = 'El correo electronico ya esta registrado';
-        } else if(errorCode === 'auth/invalid-email'){
-          message.innerHTML = 'Correo electronico no valido';
-        } else if(errorCode === 'auth/weak-password'){
-          message.innerHTML = 'La contraseña debe tern minimo 6 caracteres';
-        }
-
-      })
-      
-    }
-
-
-    
-}) 
-
-return secElement;
+return registerSection;
 };
-
 
 
 
