@@ -21,6 +21,8 @@ const init = () => {
   window.addEventListener('hashchange', () => changeView(window.location.hash));
 };
 window.addEventListener('load', init);
+
+// ********* giovanaPrueba   ****** */
 // googlelogin
 
 const buttonLogin = document.querySelector('#btn-Google');
@@ -47,3 +49,4 @@ buttonLogout.addEventListener('click', async (e) => {
   logout();
   console.log(e);
 });
+// ********* giovanaPrueba   ****** //

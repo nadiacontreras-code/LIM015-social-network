@@ -39,11 +39,8 @@ export const registerUser = (email, password) => {
       // Signed in
       const user = userCredential.user;
       console.log(user, 20);
-      // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
       // ..
