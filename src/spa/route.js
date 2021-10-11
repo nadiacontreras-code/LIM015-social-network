@@ -6,30 +6,31 @@ la url para asociarlo con las vistas */
 // exporto a MAIN porque en main se esta escuchando el cambio de la url
 import { components } from '../lib/componentes.js';
 
- const changeView = (route) => {
+const changeView = (route) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   switch (route) {
     case '':
     case '#':
     case '#/':
-      { return container.appendChild(components.home()); }
+      return container.appendChild(components.home());
     case '#/registrate':
-      { return container.appendChild(components.registro()); }
+      return container.appendChild(components.registro());
+    case '#/profile':
+      return container.appendChild(components.profile());
     default:
-      { return container.appendChild(components.different()); }
+      return container.appendChild(components.different());
   }
-
-}; 
-/* 
+};
+/*
 const changeView = (route) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   switch (route) {
     case '':
-    case '#': 
+    case '#':
     case '#/': { return container.appendChild(components.home()); }
-    case '#/registrate': { return container.appendChild(components.registro()); }   
+    case '#/registrate': { return container.appendChild(components.registro()); }
     default: //{ return container.appendChild(components.different()); }
       break;
   }

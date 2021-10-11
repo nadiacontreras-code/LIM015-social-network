@@ -6,49 +6,87 @@ export default () => {
   const viewLogin = `
 
   <aside class="secLogo">
-  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
-  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+    <img class="formLogo" src="pruebLogo.png" alt="Logo3B" /><br><br>
+    <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
   </aside>
-  <section class="loginSecForm">
   <form class="loginform" id="login">
-    <section class="loginFormTitle">
     <h1 class="formTitle">Login</h1>
-
+    <section class="loginSecForm">
+      <p class="formLoginErrorMessage"></p>
+      <section class="formGroup">
+        <p class="formLoginErrorMessage"></p>
+        <label for="loginEmail" ></label></br>
+        <input type="email" id="loginEmail" class="formLogin" autofocus placeholder="correo electronico "><br>
+      </section>
+      <section class="formGroup">
+          <p class="formLoginErrorMessage"></p>
+          <label for="loginPassword" ></label></br>
+          <input type="password" id="loginPassword" class="formLogin" autofocus placeholder="Contraseña"><br>
+      </section>
+      <p>
+        <button id="loginFormBtn" class="formButton" type="button">Iniciar Sesión</button><br><br>
+      </p>
+      <p class="formLoginErrorMessage"></p>
+      <section class="formGoogle">
+          <p class="formText"> O bien ingresa con...</p><br>
+          <img class="formGoogleImg" src= "img/googleIcono.png" alt="Iniciar sesion Google"/><br>
+      </section>
+      <section class="formGroup">
+          <p class="formText">No tienes una cuenta?
+          <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
+      </section>
     </section>
-    <section class="formGroup">
-    <input type="text" class="formLogin" autofocus placeholder="correo electronico "><br>
-        <section class="formLoginErrorMessage"></section>
-    </section>
-
-    <section class="formGroup">
-        <input type="password" class="formLogin" autofocus placeholder="Contraseña"><br>
-        <section class="formLoginErrorMessage"></section>
-    </section>
-    <section class="formGroup">
-        <button id="loginFormBtn" class="formButton" type="submit">Iniciar Sesión</button><br><br>
-        <p class="formText"> O bien ingresa con...</p><br>
-
-    <section class="formGoogle">
-        <img class="formGoogleImg" src= "img/googleIcono.png" alt="Iniciar sesion Google"/><br>
-    </section>
-        <p class="formText">No tienes una cuenta?
-        <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
-    </p>
-    <section class="formGroup">
-  </form>
-  </section>`;
+  </form>`;
 
   loginSection.innerHTML = viewLogin;
   // document.getElementById('container').appendChild(secElement);
+  const login = loginSection.querySelector('#loginFormBtn');
+  console.log(login);
+  login.addEventListener('click', (event) => {
+    console.log(10);
+    event.preventDefault();
+    console.log(11);
+    const loginEmail = loginSection.querySelector('#loginEmail').value;
+    const loginPassword = loginSection.querySelector('#loginPassword').value;
+    console.log(loginEmail, loginPassword);
+    const errorMessageLogin = loginSection.getElementsByClassName('formLoginErrorMessage');
+    function messageError(indice, message) {
+      errorMessageLogin[indice].innerHTML = `${message}`;
+    }
+    const loginUser = (email, password) => {
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user, 59);
+          window.location.hash = '#/profile';
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          console.log(errorCode);
+          // const errorMessage = error.message;
+          console.log('error', error.message, 66);
+          // messageError(2, error.message);
+          switch (errorCode) {
+            case 'auth/wrong-password':
+              messageError(1, '');
+              messageError(2, 'La contraseña no es válida o el usuario NO esta registrado‎');
+              break;
+            case 'auth/internal-error':
+              messageError(1, '');
+              messageError(2, 'Debes ingresar tu contraseña');
+              break;
+            case 'auth/invalid-email':
+              messageError(2, '');
+              messageError(1, 'El correo electrónico no tiene el formato válido');
+              break;
+            default:
+              messageError(0, error.message);
+          }
+        });
+    };
+    loginUser(loginEmail.trim(), loginPassword.trim());
+  });
 
   return loginSection;
-
-  /*   const btnRegistro = secElement.querySelector('.btnRegistro');
-    const emailRegister = document.getElementById('emailRegister');
-    const passwordRegister = document.getElementById('passwordRegister');
-    btnRegistro.addEventListener('click', (event) => {
-      event.preventDefault();
-      registerUser(emailRegister.value.trim(), passwordRegister.value.trim());
-      console.log(emailRegister,passwordRegister);
-    })  */
 };
