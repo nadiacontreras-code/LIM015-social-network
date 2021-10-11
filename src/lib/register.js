@@ -1,6 +1,4 @@
-
 // import { registerUser } from '../firebase/firebase-fn';
-
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -58,15 +56,11 @@ export default () => {
 
   return registerSection;
 
-
-  const secElement = document.createElement('section');
+/*  const secElement = document.createElement('section');
   secElement.className = 'position'; // mejorar la clase
   secElement.innerHTML = viewRegister;
   // document.getElementById('container').appendChild(secElement);
-  return secElement;
-
- 
-
+  return secElement; */
 };
 
 /* const formRegister = secElement.viewRegister.querySelector('#createAccount')
