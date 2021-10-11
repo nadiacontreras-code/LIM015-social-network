@@ -22,7 +22,7 @@ const init = () => {
 };
 window.addEventListener('load', init);
 
-// ********* giovanaPrueba   ****** */
+// ********* GIOVANDO GIOVANNA  ****** */
 // googlelogin
 
 const buttonLogin = document.querySelector('#btn-Google');
