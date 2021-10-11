@@ -6,6 +6,7 @@ import Registro from './register.js';
 import Home from './home.js';
 import Profile from './profile.js';
 import Different from './error404.js';
+import Profile from './profile.js';
 
 const components = {
   login: Login,
@@ -13,6 +14,8 @@ const components = {
   home : Home,  
   profile: Profile,
   different: Different,
+  profile: Profile,
+
 };
 
 export { components };

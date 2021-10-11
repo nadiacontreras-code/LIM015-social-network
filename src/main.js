@@ -21,9 +21,11 @@ const init = () => {
   window.addEventListener('hashchange', () => changeView(window.location.hash));
 };
 window.addEventListener('load', init);
+
+// ********* GIOVANDO GIOVANNA  ****** */
 // googlelogin
 
-const buttonLogin = document.querySelector('#btn-Google');
+/* const buttonLogin = document.querySelector('#btn-Google');
 const buttonLogout = document.querySelector('#btn-OutLog ');
 // let para mantener la variable del usuario logueado
 let currentUser;
@@ -46,4 +48,5 @@ buttonLogin.addEventListener('click', async (e) => {
 buttonLogout.addEventListener('click', async (e) => {
   logout();
   console.log(e);
-});
+}); */
+// ********* giovanaPrueba   ****** //
