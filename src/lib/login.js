@@ -1,4 +1,4 @@
-import { loginGoogle, validationEmail } from '../firebase/firebase-fn.js';
+import { loginUser, loginGoogle, validationEmail } from '../firebase/firebase-fn.js';
 // import {loginGoogle, loginUser, validationEmail} from '../firebase/firebase-fn.js';
 
 // console.log(loginUser, 2);
@@ -53,44 +53,40 @@ export default () => {
     function messageError(indice, message) {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
-    const loginUser = (email, password) => {
-      firebase.auth().createUserWithEmailAndPassword(email, password)
-        // loginUser(loginEmail, loginPassword)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user, 59);
-          window.location.hash = '#/profile';
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          console.log(errorCode);
-          // const errorMessage = error.message;
-          console.log('error', error.message, 66);
-          // messageError(2, error.message);
-          switch (errorCode) {
-            case 'auth/wrong-password':
-              messageError(1, '');
-              messageError(2, 'La contraseña no es válida o el usuario NO esta registrado‎');
-              break;
-            case 'auth/internal-error':
-              messageError(1, '');
-              messageError(2, 'Debes ingresar tu contraseña');
-              break;
-            case 'auth/invalid-email':
-              messageError(2, '');
-              messageError(1, 'El correo electrónico no tiene el formato válido');
-              break;
-            case 'auth/email-already-in-use':
-              messageError(2, '');
-              messageError(1, 'El correo electrónico ya esta registrado y está siendo usado por otra cuenta');
-              break;
-            default:
-              messageError(0, error.message);
-          }
-        });
-    };
-    loginUser(loginEmail.trim(), loginPassword.trim());
+    loginUser(loginEmail, loginPassword)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user, 59);
+        window.location.hash = '#/profile';
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        // const errorMessage = error.message;
+        console.log('error', error.message, 66);
+        // messageError(2, error.message);
+        switch (errorCode) {
+          case 'auth/wrong-password':
+            messageError(1, '');
+            messageError(2, 'La contraseña no es válida o el usuario NO esta registrado‎');
+            break;
+          case 'auth/internal-error':
+            messageError(1, '');
+            messageError(2, 'Debes ingresar tu contraseña');
+            break;
+          case 'auth/invalid-email':
+            messageError(2, '');
+            messageError(1, 'El correo electrónico no tiene el formato válido');
+            break;
+          case 'auth/email-already-in-use':
+            messageError(2, '');
+            messageError(1, 'El correo electrónico ya esta registrado y está siendo usado por otra cuenta');
+            break;
+          default:
+            messageError(0, error.message);
+        }
+      });
   });
 
   const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
