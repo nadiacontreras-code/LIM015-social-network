@@ -1,8 +1,5 @@
-
-//import { components } from '../lib/componentes.js';
-//import {registesUser} from '../firebase/firebase-fn.js';
-
-
+// import { components } from '../lib/componentes.js';
+// import {registesUser} from '../firebase/firebase-fn.js';
 
 /* export const myFunction = () => {
   // aqui tu codigo
@@ -11,8 +8,7 @@
   // hola aqui!!! me veee!!
  */
 
-
- /*  const formRegister = components.registro().querySelector('#createAccount');
+/*  const formRegister = components.registro().querySelector('#createAccount');
 
   formRegister.addEventListener('submit', (event) => {
     const emailRegister = document.getElementById('emailRegister').value;
@@ -21,5 +17,5 @@
     registesUser(emailRegister.trim(), passwordRegister.trim());
     console.log(emailRegister,passwordRegister);
 })
-  
+
 console.log(firebase); */

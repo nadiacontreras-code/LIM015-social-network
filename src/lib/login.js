@@ -1,4 +1,4 @@
- import {loginGoogle, loginUser, validationEmail} from '../firebase/firebase-fn.js';
+import { loginGoogle, loginUser, validationEmail } from '../firebase/firebase-fn.js';
 
 export default () => {
   const loginSection = document.createElement('section');
@@ -53,59 +53,63 @@ export default () => {
     function messageError(indice, message) {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
-    loginUser(loginEmail.trim(), loginPassword.trim())
-     .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user, 59);
-          window.location.hash = '#/profile';          
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          console.log(errorCode);
-          // const errorMessage = error.message;
-          console.log('error', error.message, 66);
-          // messageError(2, error.message);
-          switch (errorCode) {
-            case 'auth/wrong-password':
-              messageError(1, '');
-              messageError(2, 'La contraseña no es válida o el usuario NO esta registrado‎');
-              break;
-            case 'auth/internal-error':
-              messageError(1, '');
-              messageError(2, 'Debes ingresar tu contraseña');
-              break;
-            case 'auth/invalid-email':
-              messageError(2, '');
-              messageError(1, 'El correo electrónico no tiene el formato válido');
-              break;
-            default:
-              messageError(0, error.message);
-          }
-        });
-    
-    //loginUser(loginEmail.trim(), loginPassword.trim());
-  });
 
+
+    loginUser(loginEmail.trim(), loginPassword.trim())
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user, 59);
+        window.location.hash = '#/profile';
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        // const errorMessage = error.message;
+        console.log('error', error.message, 66);
+        // messageError(2, error.message);
+        switch (errorCode) {
+          case 'auth/wrong-password':
+            messageError(1, '');
+            messageError(2, 'La contraseña no es válida o el usuario NO esta registrado‎');
+            break;
+          case 'auth/internal-error':
+            messageError(1, '');
+            messageError(2, 'Debes ingresar tu contraseña');
+            break;
+          case 'auth/invalid-email':
+            messageError(2, '');
+            messageError(1, 'El correo electrónico no tiene el formato válido');
+            break;
+          default:
+            messageError(0, error.message);
+        }
+      });
+
+    // loginUser(loginEmail.trim(), loginPassword.trim());
+  });
+  const validarEmail = () => {
+    validationEmail().then(() => {
+      // eslint-disable-next-line no-alert
+      alert('se envio mensaje de verificacion');
+    }).catch((e) => {
+      console.log(e);
+    });
+  }
   const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
 
-  btnLoginGoogle. addEventListener('click', (e) => {
+  btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    loginGoogle().then(() => { 
+    loginGoogle().then(() => {
       validarEmail();
+
       window.location.hash = '#/profile';
     }).catch((error) => {
       console.log(error);
     });
   });
 
-  const validarEmail = () =>{
-    validationEmail().then(() => {
-      alert('se envio mensaje de verificacion');
-    }).catch((e) => {
-      console.log(e);
-    })
-  }
+
 
   return loginSection;
 };
