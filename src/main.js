@@ -22,7 +22,13 @@ const init = () => {
 };
 window.addEventListener('load', init);
 
-// ********* GIOVANDO GIOVANNA  ****** */
+// ********* PROVANDO GIOVANNA  ****** */
+/* const secElement = `<section id="">
+<button id="btn-Google">Login con Google</button> <br>
+<button id="btn-OutLog" class="hidden">Cerrar Sesión</button>
+</section>`; */
+
+// document.getElementById('main').appendChild(secElement);
 // googlelogin
 
 const buttonLogin = document.querySelector('#btn-Google');
