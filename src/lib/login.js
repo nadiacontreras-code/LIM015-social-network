@@ -1,5 +1,3 @@
-// import {registerUser} from '../firebase/firebase-fn.js';
-
 export default () => {
   const loginSection = document.createElement('section');
   loginSection.className = 'loginSection';
@@ -40,10 +38,8 @@ export default () => {
 
   loginSection.innerHTML = viewLogin;
   // document.getElementById('container').appendChild(secElement);
-
   return loginSection;
-
-/*   const btnRegistro = secElement.querySelector('.btnRegistro');
+  /*   const btnRegistro = secElement.querySelector('.btnRegistro');
    const emailRegister = document.getElementById('emailRegister');
    const passwordRegister = document.getElementById('passwordRegister');
 

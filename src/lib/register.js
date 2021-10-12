@@ -6,68 +6,106 @@ export default () => {
 
   const viewRegister = `
   <aside class="secLogo">
-  <img class="formLogo" src="img/pruebLogo.png" alt="Logo3B" /><br><br>
+  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
   <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
   </aside>
-  <section class="registerSecForm">
   <form class="registerAccountForm" id="registerAccount">
-    <section class="registerFormTitle">
     <h1 class="formTitle">¡Registrate en 3B!</h1>
+    <p>Los campos obligatorios se marcan con un (*).</p>
+    <section class="registerSecForm">
+      <p class="formRegisterErrorMessage"></p>
+      <section class="formGroup">
+        <p class="formRegisterErrorMessage"></p>
+        <label for="registerName" >Nombre(s)*</label></br>
+        <input type="text" id="registerName" class="formRegister" autofocus="autofocus"
+        placeholder="María" ><br><br>
+      </section>
+      <section class="formGroup">
+        <p class="formRegisterErrorMessage"></p>
+        <label for ="registerLastname" >Apellidos*</label></br>
+        <input type="text" id="registerLastname" class="formRegister"  autofocus
+        placeholder="Casas" ><br><br>
+      </section>
+      <section class="formGroup">
+        <p class="formRegisterErrorMessage"></p>
+        <label for='registerEmail'>Correo Electrónico *</label></br>
+        <input type="email" id="registerEmail" class="formRegister"  autofocus
+        placeholder="mariaCasas@hotmail.com"><br><br>
+      </section>
+      <section class="formGroup">
+        <p class="formRegisterErrorMessage"></p>
+        <label for ="registerPassword"> Contraseña *</label></br>
+        <input type="password" id="registerPassword" class="formRegister" minlength="6"  autofocus
+        placeholder="Contraseña"><br><br>
+      </section>
+      <section class="formGroup">
+        <p class="formRegisterErrorMessage"></p>
+        <label for ="repeatPassword"> Repite la Contraseña *</label></br>
+        <input type="password" id="repeatPassword" class="formRegister"  autofocus
+        placeholder="Contraseña"><br><br>
+      </section>
+      <p class="formGroup">
+        <button id="registerFormBtn" class="formButton" type="submit">Registrarse</button><br><br>
+      </p>
+      <p class="formText">Ya tienes cuenta?
+        <a class="loginLink" href="#/" id="linkLogin"> Inicia Sesión</a>
+      </p>
     </section>
-    <!-- mensaje de error -->
-    <section class="formGroup">
-      <input type="text" id="registerName" class="formRegister" autofocus="autofocus"
-      placeholder="Nombre"><br><br>
-      <section class="formRegisterErrorMessage"></section>
-    </section>
-
-    <section class="formGroup">
-      <input type="text" id="registerLastname" class="formRegister" autofocus
-      placeholder="Apellidos"><br><br>
-      <section class="formRegisterErrorMessage"></section>
-    </section>
-    <section class="formGroup">
-      <input type="text" id="registerEmail" class="formRegister" autofocus
-      placeholder="Correo Electronico"><br><br>
-      <section class="formRegisterErrorMessage"></section>
-
-    </section>
-    <section class="formGroup">
-      <input type="password" id="firstPassword" class="formRegister" autofocus
-      placeholder="Contraseña"><br><br>
-      <section class="formRegisterErrorMessage"></section>
-    </section>
-    <section class="formGroup">
-      <input type="password" id="secondPassword" class="formRegister" autofocus
-      placeholder="Confirmar contraseña"><br><br>
-    <section class="formRegisterErrorMessage"></section>
-    </section>
-    <section class="formGroup">
-    <button id="registerFormBtn" class="formButton" type="submit">Registrarse</button><br><br>
-    <p class="formText">Ya tienes cuenta?
-      <a class="loginLink" href="#/" id="linkLogin"> Inicia Sesión</a>
-    </p>
-
-    </section>
-  </form>
-  </section>`;
+  </form>`;
 
   registerSection.innerHTML = viewRegister;
 
-  return registerSection;
+  // const registerFormBtn = registerSection.querySelector('#registerFormBtn');
+  const registerAccount = registerSection.querySelector('#registerAccount');
 
-/*  const secElement = document.createElement('section');
-  secElement.className = 'position'; // mejorar la clase
-  secElement.innerHTML = viewRegister;
-  // document.getElementById('container').appendChild(secElement);
-  return secElement; */
-};
-
-/* const formRegister = secElement.viewRegister.querySelector('#createAccount')
-
-formRegister.addEventListener('submit', (event) => {
-    const emailRegister = document.getElementById('emailRegister').value;
-    const passwordRegister = document.getElementById('passwordRegister').value;
+  registerAccount.addEventListener('submit', (event) => {
     event.preventDefault();
-    registesUser(emailRegister.trim(), passwordRegister.trim());
-}) */
+    const registerName = registerSection.querySelector('#registerName').value;
+    const registerLastname = registerSection.querySelector('#registerLastname').value;
+    const registerEmail = registerSection.querySelector('#registerEmail').value;
+    const registerPassword = registerSection.querySelector('#registerPassword').value;
+    const repeatPassword = registerSection.querySelector('#repeatPassword').value;
+    const errorMessageForm = registerSection.getElementsByClassName('formRegisterErrorMessage');
+    //  console.log(errorMessage, 64);
+    function messageError(indice, message) {
+      errorMessageForm[indice].innerHTML = `${message}`;
+    }
+    if (registerName === '' || registerLastname === '' || registerEmail === ''
+      || registerPassword === '' || repeatPassword === '') {
+      messageError(0, 'Debes que llenar todos los campos');
+      // console.log(messageError(0, 'Tienes que llenar todos los campos'), 79);
+    } else if (registerPassword !== repeatPassword) {
+      messageError(0, '');
+      messageError(5, 'Las contraseñas NO coinciden');
+      // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
+    } else {
+      const registerUser = (email, password) => {
+        // console.log(email, password);
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log(user.displayName, 20);
+            window.location.hash = '#/';
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            console.log('error', error.message);
+            switch (errorCode) {
+              case 'auth/email-already-in-use':
+                messageError(3, 'El correo electrónico ya está registrado');
+                break;
+              case 'auth/invalid-email':
+                messageError(3, 'Correo electrónico no válido');
+                break;
+              default:
+                messageError(0, error.message);
+            }
+          });
+      };
+      registerUser(registerEmail.trim(), registerPassword.trim());
+    }
+  });
+
+  return registerSection;
+};
