@@ -1,4 +1,4 @@
-import { registerUser } from '../firebase/firebase-fn.js';
+import { registerUser, validationEmail } from '../firebase/firebase-fn.js';
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -80,10 +80,16 @@ export default () => {
       // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
     } else {
       registerUser(registerEmail, registerPassword)
-        .then((userCredential) => {
+        .then(() => {
           // Signed in
-          const user = userCredential.user;
-          console.log(user.displayName, 20);
+          /* const user = userCredential.user;
+          console.log(user.displayName, 20); */
+          validationEmail().then(() => {
+            // eslint-disable-next-line no-alert
+            alert('se envio mensaje de verificacion');
+          }).catch((e) => {
+            console.log(e);
+          });
           window.location.hash = '#/';
         })
         .catch((error) => {

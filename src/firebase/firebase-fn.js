@@ -1,3 +1,5 @@
+export const validationEmail = () => firebase.auth().currentUser.sendEmailVerification();
+
 /* **********Función para registrar usuario********** */
 export const loginUser = (email, password) => firebase.auth()
   .signInWithEmailAndPassword(email, password);

@@ -18,3 +18,4 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 /* const auth = firebaseApp.auth();
 onAuthStateChanged(auth, user => { console.log(user); }); */
+// const db = firebase.firestore();

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 52d0327ee5440240d9776980d3308f48711d7e93
 // Este es el punto de entrada de tu aplicacion
 
 // Initialize Firebase
