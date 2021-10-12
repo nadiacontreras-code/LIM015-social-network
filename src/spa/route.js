@@ -1,6 +1,3 @@
-/* eslint-disable indent */
-// import desde VIEW/INDEX.JS porque
-
 /* traerme el window.location.hash cada vez que cambie la vista de
 la url para asociarlo con las vistas */
 // exporto a MAIN porque en main se esta escuchando el cambio de la url

@@ -70,6 +70,15 @@ export default () => {
     function messageError(indice, message) {
       errorMessageForm[indice].innerHTML = `${message}`;
     }
+    // funcion para validar email
+    const validarEmail = () =>{
+      validationEmail().then(() => {
+        alert('se envio mensaje de verificacion');
+      }).catch((e) => {
+        console.log(e);
+      })
+    }
+
     if (registerName === '' || registerLastname === '' || registerEmail === ''
       || registerPassword === '' || repeatPassword === '') {
       messageError(0, 'Debes que llenar todos los campos');
@@ -104,13 +113,7 @@ export default () => {
           });
       };
 
-      const validarEmail = () =>{
-        validationEmail().then(() => {
-          alert('se envio mensaje de verificacion');
-        }).catch((e) => {
-          console.log(e);
-        })
-      }
+      
      
     
   });

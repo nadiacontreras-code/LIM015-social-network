@@ -89,6 +89,14 @@ export default () => {
 
   const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
 
+  const validarEmail = () =>{
+    validationEmail().then(() => {
+      alert('se envio mensaje de verificacion');
+    }).catch((e) => {
+      console.log(e);
+    })
+  }
+
   btnLoginGoogle. addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle().then(() => { 
@@ -99,13 +107,7 @@ export default () => {
     });
   });
 
-  const validarEmail = () =>{
-    validationEmail().then(() => {
-      alert('se envio mensaje de verificacion');
-    }).catch((e) => {
-      console.log(e);
-    })
-  }
+ 
 
   return loginSection;
 };
