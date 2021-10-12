@@ -70,6 +70,16 @@ export default () => {
     function messageError(indice, message) {
       errorMessageForm[indice].innerHTML = `${message}`;
     }
+    // funcion para validar email
+    const validarEmail = () => {
+      validationEmail().then(() => {
+        // eslint-disable-next-line no-alert
+        alert('se envio mensaje de verificacion');
+      }).catch((e) => {
+        console.log(e);
+      });
+    };
+
     if (registerName === '' || registerLastname === '' || registerEmail === ''
       || registerPassword === '' || repeatPassword === '') {
       messageError(0, 'Debes que llenar todos los campos');
@@ -79,14 +89,6 @@ export default () => {
       messageError(5, 'Las contraseñas NO coinciden');
       // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
     } else {
-      const validarEmail = () => {
-        validationEmail().then(() => {
-          // eslint-disable-next-line no-alert
-          alert('se envio mensaje de verificacion');
-        }).catch((e) => {
-          console.log(e);
-        });
-      };
       registerUser(registerEmail.trim(), registerPassword.trim())
         .then((userCredential) => {
           // Signed in

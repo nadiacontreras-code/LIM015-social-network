@@ -54,7 +54,6 @@ export default () => {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
 
-
     loginUser(loginEmail.trim(), loginPassword.trim())
       .then((userCredential) => {
         // Signed in
@@ -88,6 +87,8 @@ export default () => {
 
     // loginUser(loginEmail.trim(), loginPassword.trim());
   });
+  const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
+
   const validarEmail = () => {
     validationEmail().then(() => {
       // eslint-disable-next-line no-alert
@@ -95,9 +96,7 @@ export default () => {
     }).catch((e) => {
       console.log(e);
     });
-  }
-  const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
-
+  };
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle().then(() => {
@@ -108,8 +107,6 @@ export default () => {
       console.log(error);
     });
   });
-
-
 
   return loginSection;
 };
