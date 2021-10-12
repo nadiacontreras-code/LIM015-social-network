@@ -30,22 +30,12 @@ createUserWithEmailAndPassword(auth, email, password)
     // ..
   }); */
 /* **********Función para registrar usuario********** */
-/* export const registerUser = (email, password) => firebase.auth()
-.createUserWithEmailAndPassword(email, password); */
-export const registerUser = (email, password) => {
-  // console.log(email, password);
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user, 20);
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      // ..
-    });
-};
+// eslint-disable-next-line max-len
+export const loginUser = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
+
+/* **********Función para registrar usuario********** */
+export const registerUser = (email, password) => firebase.auth()
+  .createUserWithEmailAndPassword(email, password);
 
 /* export const registesUser = (email, password) => {
    firebase
@@ -60,10 +50,6 @@ m })
     })
  }; */
 
-/* **********Función para registrar usuario********** */
-/* export const registerUser = (email, password) => firebase.auth()
-.createUserWithEmailAndPassword(email, password); */
-
 /* **********Función para iniciar sesión********** */
 /* export const loginUser = (emailLogin, passwordLogin) => firebase.auth()
 .signInWithEmailAndPassword(emailLogin, passwordLogin); */
@@ -73,8 +59,9 @@ m })
 .sendPasswordResetEmail(emailLogin); */
 
 /* **********Función iniciar sesión con google********** */
-/* export const loginGoogle = () => {
-const providerGoogle = new firebase.auth.GoogleAuthProvider();
-const loginwithGoogle = firebase.auth().signInWithPopup(providerGoogle);
-return loginwithGoogle;
-}; */
+export const loginGoogle = () => {
+  const providerGoogle = new firebase.auth.GoogleAuthProvider();
+  // eslint-disable-next-line max-len
+  const loginwithGoogle = firebase.auth().signInWithPopup(providerGoogle);// popup para seleccionar cuenta google
+  return loginwithGoogle;
+};

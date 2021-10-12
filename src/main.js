@@ -1,4 +1,4 @@
-import { login, logout } from './firebase/firebase-fn.js';
+// import { login, logout } from './firebase/firebase-fn.js';
 // Este es el punto de entrada de tu aplicacion
 
 // Initialize Firebase
@@ -31,7 +31,7 @@ window.addEventListener('load', init);
 // document.getElementById('main').appendChild(secElement);
 // googlelogin
 
-const buttonLogin = document.querySelector('#btn-Google');
+/* const buttonLogin = document.querySelector('#btn-Google');
 const buttonLogout = document.querySelector('#btn-OutLog ');
 // let para mantener la variable del usuario logueado
 let currentUser;
@@ -54,5 +54,5 @@ buttonLogin.addEventListener('click', async (e) => {
 buttonLogout.addEventListener('click', async (e) => {
   logout();
   console.log(e);
-});
+}); */
 // ********* giovanaPrueba   ****** //
