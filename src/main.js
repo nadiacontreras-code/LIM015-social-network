@@ -1,4 +1,4 @@
-import { login, logout } from './firebase/firebase-fn.js';
+// import { login, logout } from './firebase/firebase-fn.js';
 // Este es el punto de entrada de tu aplicacion
 
 // Initialize Firebase
@@ -11,7 +11,7 @@ myFunction(); */
 
 // Se ejeccutara cuando nuestra pagina se recargue
 
-import { changeView } from './spa/route.js';
+import { changeView } from './viewControler/route.js';
 
 // En este archivo se esta escuchando el camnio de la URL
 // Funcion para cambiar la url usando el evento hashchange
@@ -25,7 +25,7 @@ window.addEventListener('load', init);
 // ********* GIOVANDO GIOVANNA  ****** */
 // googlelogin
 
-const buttonLogin = document.querySelector('#btn-Google');
+/* const buttonLogin = document.querySelector('#btn-Google');
 const buttonLogout = document.querySelector('#btn-OutLog ');
 // let para mantener la variable del usuario logueado
 let currentUser;
@@ -48,5 +48,5 @@ buttonLogin.addEventListener('click', async (e) => {
 buttonLogout.addEventListener('click', async (e) => {
   logout();
   console.log(e);
-});
+}); */
 // ********* giovanaPrueba   ****** //

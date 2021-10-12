@@ -1,5 +1,6 @@
-// import {registerUser} from '../firebase/firebase-fn.js';
+// import { loginUser } from '../firebase/firebase-fn.js';
 
+// console.log(loginUser, 2);
 export default () => {
   const loginSection = document.createElement('section');
   loginSection.className = 'loginSection';
@@ -41,11 +42,8 @@ export default () => {
   loginSection.innerHTML = viewLogin;
   // document.getElementById('container').appendChild(secElement);
   const login = loginSection.querySelector('#loginFormBtn');
-  console.log(login);
   login.addEventListener('click', (event) => {
-    console.log(10);
     event.preventDefault();
-    console.log(11);
     const loginEmail = loginSection.querySelector('#loginEmail').value;
     const loginPassword = loginSection.querySelector('#loginPassword').value;
     console.log(loginEmail, loginPassword);
@@ -54,7 +52,8 @@ export default () => {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
     const loginUser = (email, password) => {
-      firebase.auth().signInWithEmailAndPassword(email, password)
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        // loginUser(loginEmail, loginPassword)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
@@ -79,6 +78,10 @@ export default () => {
             case 'auth/invalid-email':
               messageError(2, '');
               messageError(1, 'El correo electrónico no tiene el formato válido');
+              break;
+            case 'auth/email-already-in-use':
+              messageError(2, '');
+              messageError(1, 'El correo electrónico ya esta registrado y está siendo usado por otra cuenta');
               break;
             default:
               messageError(0, error.message);
