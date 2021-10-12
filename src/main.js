@@ -1,13 +1,7 @@
 // import { login, logout } from './firebase/firebase-fn.js';
 // Este es el punto de entrada de tu aplicacion
 
-// Initialize Firebase
-
-/* import { myFunction } from './lib/index.js';
-
-myFunction(); */
-
-// Google Login
+//
 
 // Se ejeccutara cuando nuestra pagina se recargue
 
@@ -55,4 +49,4 @@ buttonLogout.addEventListener('click', async (e) => {
   logout();
   console.log(e);
 }); */
-// ********* giovanaPrueba   ****** //
+// ********* giovanaPrueba profile  ****** //

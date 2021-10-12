@@ -1,5 +1,5 @@
 // función para logearse con google
-const auth = firebase.auth();
+/* const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export async function login() {
@@ -11,7 +11,17 @@ export async function login() {
     throw new Error(error);
   }
 }
+*/
+const db = firebase.firestore();
 
+export async function insert(item) {
+  try {
+    const response = await db.collection('todos').add(item);
+    return response;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
 // funcion para cerrar sesion
 export function logout() {
   firebase.auth().signOut();
