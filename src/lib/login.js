@@ -36,7 +36,7 @@ export default () => {
           <p class="formText">No tienes una cuenta?
           <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
           </p>
-          </section>npm 
+          </section>
     </section>
   </form>`;
 
