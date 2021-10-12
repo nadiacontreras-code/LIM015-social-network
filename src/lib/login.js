@@ -35,7 +35,8 @@ export default () => {
       <section class="formGroup">
           <p class="formText">No tienes una cuenta?
           <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
-      </section>
+          </p>
+          </section>npm 
     </section>
   </form>`;
 
@@ -93,8 +94,8 @@ export default () => {
 
   const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
 
-  btnLoginGoogle.addEventListener('click', (e) => {
-    e.preventDefault();
+  btnLoginGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
     loginGoogle().then(() => {
       window.location.hash = '#/profile';
     }).catch((error) => {
