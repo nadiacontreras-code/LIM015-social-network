@@ -1,4 +1,4 @@
-// import { registerUser } from '../firebase/firebase-fn';
+import { registerUser } from '../firebase/firebase-fn.js';
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -79,31 +79,27 @@ export default () => {
       messageError(5, 'Las contraseñas NO coinciden');
       // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
     } else {
-      const registerUser = (email, password) => {
-        // console.log(email, password);
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            console.log(user.displayName, 20);
-            window.location.hash = '#/';
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            console.log('error', error.message);
-            switch (errorCode) {
-              case 'auth/email-already-in-use':
-                messageError(3, 'El correo electrónico ya está registrado');
-                break;
-              case 'auth/invalid-email':
-                messageError(3, 'Correo electrónico no válido');
-                break;
-              default:
-                messageError(0, error.message);
-            }
-          });
-      };
-      registerUser(registerEmail.trim(), registerPassword.trim());
+      registerUser(registerEmail, registerPassword)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user.displayName, 20);
+          window.location.hash = '#/';
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          console.log('error', error.message);
+          switch (errorCode) {
+            case 'auth/email-already-in-use':
+              messageError(3, 'El correo electrónico ya está registrado');
+              break;
+            case 'auth/invalid-email':
+              messageError(3, 'Correo electrónico no válido');
+              break;
+            default:
+              messageError(0, error.message);
+          }
+        });
     }
   });
 

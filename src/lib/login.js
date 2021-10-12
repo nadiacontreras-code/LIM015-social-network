@@ -1,4 +1,4 @@
-// import { loginUser } from '../firebase/firebase-fn.js';
+import { loginGoogle } from '../firebase/firebase-fn.js';
 
 // console.log(loginUser, 2);
 export default () => {
@@ -24,7 +24,7 @@ export default () => {
           <label for="loginPassword" ></label></br>
           <input type="password" id="loginPassword" class="formLogin" autofocus placeholder="Contraseña"><br>
       </section>
-      <p>
+      <p class="formGroup">
         <button id="loginFormBtn" class="formButton" type="button">Iniciar Sesión</button><br><br>
       </p>
       <p class="formLoginErrorMessage"></p>
@@ -89,6 +89,17 @@ export default () => {
         });
     };
     loginUser(loginEmail.trim(), loginPassword.trim());
+  });
+
+  const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
+
+  btnLoginGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginGoogle().then(() => {
+      window.location.hash = '#/profile';
+    }).catch((error) => {
+      console.log(error);
+    });
   });
 
   return loginSection;
