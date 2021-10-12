@@ -1,4 +1,4 @@
-import { login, logout } from './firebase/firebase-fn.js';
+
 // Este es el punto de entrada de tu aplicacion
 
 // Initialize Firebase

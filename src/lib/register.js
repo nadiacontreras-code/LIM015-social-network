@@ -1,4 +1,4 @@
- import {registerUser} from '../firebase/firebase-fn.js';
+ import {registerUser, validationEmail} from '../firebase/firebase-fn.js';
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -84,7 +84,9 @@ export default () => {
             // Signed in
             const user = userCredential.user;
             console.log(user.displayName, 20);
+            validarEmail();
             window.location.hash = '#/';
+            
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -101,6 +103,14 @@ export default () => {
             }
           });
       };
+
+      const validarEmail = () =>{
+        validationEmail().then(() => {
+          alert('se envio mensaje de verificacion');
+        }).catch((e) => {
+          console.log(e);
+        })
+      }
      
     
   });

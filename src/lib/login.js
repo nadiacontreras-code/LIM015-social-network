@@ -1,4 +1,4 @@
- import {loginGoogle, loginUser} from '../firebase/firebase-fn.js';
+ import {loginGoogle, loginUser, validationEmail} from '../firebase/firebase-fn.js';
 
 export default () => {
   const loginSection = document.createElement('section');
@@ -58,7 +58,7 @@ export default () => {
           // Signed in
           const user = userCredential.user;
           console.log(user, 59);
-          window.location.hash = '#/profile';
+          window.location.hash = '#/profile';          
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -91,12 +91,21 @@ export default () => {
 
   btnLoginGoogle. addEventListener('click', (e) => {
     e.preventDefault();
-    loginGoogle().then(() => {
+    loginGoogle().then(() => { 
+      validarEmail();
       window.location.hash = '#/profile';
     }).catch((error) => {
       console.log(error);
     });
   });
+
+  const validarEmail = () =>{
+    validationEmail().then(() => {
+      alert('se envio mensaje de verificacion');
+    }).catch((e) => {
+      console.log(e);
+    })
+  }
 
   return loginSection;
 };
