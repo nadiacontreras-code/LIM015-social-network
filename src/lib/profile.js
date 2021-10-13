@@ -1,7 +1,30 @@
 export default () => {
   const profileview = document.createElement('section');
   profileview.className = 'perfilSection';
-  const prueba = '<h1>Probando Pefil</h1>';
+  const prueba = `<section class="userProfile">
+                  <div id="photoPortada">                      
+                          <img id="imgPortada" src="img/lago.jpg" alt="foto-portada">                                          
+                  </div><br> 
+                  <div class="photoProfile">
+                    <img class="photo" src="img/chica.jpg"></img> 
+                  </div>
+                  <div>                    
+                    <label id="select-profile" for="select-photo-profile">
+                      <input type="file" id="select-photo-profile" class="inputUploadPhoto hide" accept="image/jpeg, image/png">                      
+                      <button id="subirfoto" class ="btnUploadPhoto button" style="display: none;">Subir foto</button>
+                    </label>
+                  </div>
+                  <div class="user info">
+                    <p>Nombre Apellido</p>
+                  </div>
+                </section>        
+                </section>
+                <section class="makePost">
+                  
+                  <textarea class="inputType" id="postTextarea" placeholder="Comparte con la comunidad"></textarea>
+                  <span id="errorPost" class="error"></span>
+                  <button class="button" id="btnPost">Publicar</button>
+                </section>`;
 
   profileview.innerHTML = prueba;
   return profileview;

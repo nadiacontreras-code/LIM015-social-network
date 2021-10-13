@@ -1,4 +1,4 @@
- import {registerUser, validationEmail} from '../firebase/firebase-fn.js';
+import { registerUser, validationEmail } from '../firebase/firebase-fn.js';
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -58,7 +58,7 @@ export default () => {
   // const registerFormBtn = registerSection.querySelector('#registerFormBtn');
   const registerAccount = registerSection.querySelector('#registerAccount');
 
-   registerAccount.addEventListener('submit', (event) => {
+  registerAccount.addEventListener('submit', (event) => {
     event.preventDefault();
     const registerName = registerSection.querySelector('#registerName').value;
     const registerLastname = registerSection.querySelector('#registerLastname').value;
@@ -71,13 +71,14 @@ export default () => {
       errorMessageForm[indice].innerHTML = `${message}`;
     }
     // funcion para validar email
-    const validarEmail = () =>{
+    const validarEmail = () => {
       validationEmail().then(() => {
+        // eslint-disable-next-line no-alert
         alert('se envio mensaje de verificacion');
       }).catch((e) => {
         console.log(e);
-      })
-    }
+      });
+    };
 
     if (registerName === '' || registerLastname === '' || registerEmail === ''
       || registerPassword === '' || repeatPassword === '') {
@@ -88,35 +89,30 @@ export default () => {
       messageError(5, 'Las contraseñas NO coinciden');
       // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
     } else {
-       registerUser(registerEmail.trim(), registerPassword.trim())
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            console.log(user.displayName, 20);
-            validarEmail();
-            window.location.hash = '#/';
-            
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            console.log('error', error.message);
-            switch (errorCode) {
-              case 'auth/email-already-in-use':
-                messageError(3, 'El correo electrónico ya está registrado');
-                break;
-              case 'auth/invalid-email':
-                messageError(3, 'Correo electrónico no válido');
-                break;
-              default:
-                messageError(0, error.message);
-            }
-          });
-      };
-
-      
-     
-    
+      registerUser(registerEmail.trim(), registerPassword.trim())
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user.displayName, 20);
+          validarEmail();
+          window.location.hash = '#/';
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          console.log('error', error.message);
+          switch (errorCode) {
+            case 'auth/email-already-in-use':
+              messageError(3, 'El correo electrónico ya está registrado');
+              break;
+            case 'auth/invalid-email':
+              messageError(3, 'Correo electrónico no válido');
+              break;
+            default:
+              messageError(0, error.message);
+          }
+        });
+    }
   });
- 
+
   return registerSection;
 };

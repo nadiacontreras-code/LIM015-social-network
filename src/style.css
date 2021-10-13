@@ -187,6 +187,46 @@ input {
   position: center;
 }
 
+/********************PROFILE*********************/
+#photoPortada {
+  width: 100%;
+  height: 70%;
+  left: 63px;
+  top: 193px;
+
+  background: rgba(242, 5, 92, 0.4);
+  border-radius: 10px;
+  
+}
+  
+#imgPortada {
+  width: 240px;
+  height: 87px;
+  left: 79px;
+  top: 216px;
+
+  
+}
+.photoProfile{
+  
+  width: 100%;
+  height: 100%;
+  left: 65px;
+  top: 429px;
+
+  background: rgba(242, 5, 92, 0.4);
+  border-radius: 10px;
+  
+}
+.photo {    
+      width: 100px;
+      height: 100px;
+      margin-right: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+    
+}
+
 /********************FOOTER*********************/
 
 footer {
