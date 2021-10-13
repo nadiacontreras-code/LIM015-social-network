@@ -14,7 +14,8 @@ const changeView = (route) => {
     case '#/registrate':
       return container.appendChild(components.registro());
     case '#/profile':
-      return container.appendChild(components.profile());
+      return container.appendChild(components.navegador())
+        && container.appendChild(components.profile());
     default:
       return container.appendChild(components.different());
   }

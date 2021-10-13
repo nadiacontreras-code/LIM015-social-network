@@ -74,7 +74,8 @@ export default () => {
     const validarEmail = () => {
       validationEmail().then(() => {
         // eslint-disable-next-line no-alert
-        alert('se envio mensaje de verificacion');
+        alert('se envio mensaje de verificacion a su correo electrónico');
+
       }).catch((e) => {
         console.log(e);
       });
@@ -89,10 +90,10 @@ export default () => {
       messageError(5, 'Las contraseñas NO coinciden');
       // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
     } else {
-      registerUser(registerEmail.trim(), registerPassword.trim())
-        .then((userCredential) => {
+      registerUser(registerEmail, registerPassword)
+        .then((result) => {
           // Signed in
-          const user = userCredential.user;
+          const user = result.user;
           console.log(user.displayName, 20);
           validarEmail();
           window.location.hash = '#/';
@@ -113,6 +114,5 @@ export default () => {
         });
     }
   });
-
   return registerSection;
 };
