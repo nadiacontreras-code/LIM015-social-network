@@ -226,43 +226,73 @@ input {
 }
 
 /********************PROFILE*********************/
-#photoPortada {
-  width: 100%;
-  height: 70%;
-  left: 63px;
-  top: 193px;
+body {
+  padding: 0px;
+  margin: 0px;
 
+}
+
+#photoPortada {
+  display: none;
+  display: flex;
+  margin: 10px;
+  padding: 15px;
+  width: 87%;
+      
+  left: 45px;
+  top: 229px;
+      
   background: rgba(242, 5, 92, 0.4);
   border-radius: 10px;
   
 }
-  
+
 #imgPortada {
-  width: 240px;
-  height: 87px;
+  width: 100%;
+  height: 100px;
   left: 79px;
   top: 216px;
+  justify-content: space-between;
+  border-radius: 10px;
 
   
 }
 .photoProfile{
+  display: flex;
+  margin: 10px;
+  padding: 20px 30px 20px 30px;
+  width: 79%;
   
-  width: 100%;
-  height: 100%;
-  left: 65px;
+  *left: 65px;
   top: 429px;
+  
 
   background: rgba(242, 5, 92, 0.4);
   border-radius: 10px;
   
 }
 .photo {    
-      width: 100px;
-      height: 100px;
+      width: 130px;
+      height: 130px;
       margin-right: 15px;
       border-radius: 50%;
       cursor: pointer;
     
+}
+.userinfo {
+  display: flexbox; 
+  margin-left: 9px;
+  padding: 10px; 
+  font-size: 18px;
+  justify-content: space-between;
+}
+.username1 {
+  display: flexbox; 
+  padding-bottom: 0px;
+  margin-top: 7px;
+  margin-bottom: 0px;
+  margin-right: 6px;
+  font-family: "Roboto", sans-serif;;
 }
 
 /********************FOOTER*********************/
