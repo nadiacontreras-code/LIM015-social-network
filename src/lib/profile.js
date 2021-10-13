@@ -18,13 +18,7 @@ export default () => {
                     <p>Nombre Apellido</p>
                   </div>
                 </section>        
-                </section>
-                <section class="makePost">
-                  
-                  <textarea class="inputType" id="postTextarea" placeholder="Comparte con la comunidad"></textarea>
-                  <span id="errorPost" class="error"></span>
-                  <button class="button" id="btnPost">Publicar</button>
-                </section>`;
+                </section> `;
 
   profileview.innerHTML = prueba;
   return profileview;

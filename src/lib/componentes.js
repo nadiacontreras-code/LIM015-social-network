@@ -6,7 +6,7 @@ import Registro from './register.js';
 import Profile from './profile.js';
 import Different from './error404.js';
 import Navegador from './navegador.js';
-
+import Publicaciones from './publication.js';
 
 const components = {
   login: Login,
@@ -14,6 +14,7 @@ const components = {
   navegador: Navegador,
   profile: Profile,
   different: Different,
+  publication: Publicaciones,
 };
 
 export { components };

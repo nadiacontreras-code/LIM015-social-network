@@ -6,8 +6,10 @@ export default () => {
   const viewLogin = `
 
   <aside class="secLogo">
-  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
-  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  <section class="sectionImgFondo">
+  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" />
+  </section><br><br>
+  <h1>¡Bienvenidos a <strong>3B</strong>!</h1>
   </aside>
   <form class="loginform" id="login">
     <h1 class="formTitle">Login</h1>
@@ -29,7 +31,7 @@ export default () => {
       <p class="formLoginErrorMessage"></p>
       <section class="formGoogle">
           <p class="formText"> O bien ingresa con...</p><br>
-          <img class="formGoogleImg" src= "img/googleIcono.png" alt="Iniciar sesion Google"/><br>
+          <p class="formGoogleImg"><img  src= "img/googleIcono.png" alt="Iniciar sesion Google"/></p><br>
       </section>
       <section class="formGroup">
           <p class="formText">No tienes una cuenta?
@@ -103,6 +105,7 @@ export default () => {
 
   const validarEmail = () => {
     validationEmail().then(() => {
+      // eslint-disable-next-line no-alert
       alert('se envio mensaje de verificacion');
     }).catch((e) => {
       console.log(e);

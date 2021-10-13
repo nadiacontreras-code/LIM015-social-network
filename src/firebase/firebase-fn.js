@@ -1,10 +1,8 @@
-
 export const validationEmail = () => firebase.auth().currentUser.sendEmailVerification();
 
 /* **********Función para registrar usuario********** */
 // eslint-disable-next-line max-len
 export const loginUser = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
-
 
 /* **********Función para registrar usuario********** */
 export const registerUser = (email, password) => firebase.auth()
