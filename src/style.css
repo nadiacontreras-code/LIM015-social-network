@@ -9,9 +9,40 @@
   padding: 0%;
 }
 
-#googleLogin {
-  background-color: rgb(231, 31, 31);
-  padding: 6px 10px;
+.miPost {
+
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+ 
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(20px, 50px);
+  gap: 20px;
+  padding: 20px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.formButton{
+  background-color: #d3057d;
+  padding: 6px 8px;
+  border-radius: 2em;
+  
+  
+}
+
+#todo-input {
+  text-align:justify;
+  display: grid;
+  overflow: auto;
+  grid-template-columns: 10px;
+  grid-auto-rows: minmax(2px, 2px);
+  padding: 6px ;
+  height: 130px;
+  background-color: rgba(184, 0, 52, 0.5);
 }
 
 /********************* BODY *******************/
