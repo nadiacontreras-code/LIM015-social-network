@@ -1,4 +1,4 @@
-import { getPost } from '../firebase/firebase-fn.js';
+// import { getPost } from '../firebase/firebase-fn.js';
 
 export default () => {
   const perfil = document.createElement('section');
