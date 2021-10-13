@@ -18,12 +18,12 @@ export default () => {
       <section class="formGroup">
         <p class="formLoginErrorMessage"></p>
         <label for="loginEmail" ></label></br>
-        <input type="email" id="loginEmail" class="formLogin" autofocus placeholder="correo electronico "><br>
+        <input type="email" id="loginEmail" class="formLogin" autofocus placeholder="correo electronico"><br>
       </section>
       <section class="formGroup">
           <p class="formLoginErrorMessage"></p>
           <label for="loginPassword" ></label></br>
-          <input type="password" id="loginPassword" class="formLogin" autofocus placeholder="Contraseña"><br>
+          <input type="password" id="loginPassword" class="formLogin" autofocus placeholder="Contraseña"><br></br>
       </section>
       <p class="formGroup">
         <button id="loginFormBtn" class="formButton" type="button">Iniciar Sesión</button><br><br>
@@ -54,11 +54,19 @@ export default () => {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
     loginUser(loginEmail, loginPassword)
-      .then((userCredential) => {
+      .then((result) => {
         // Signed in
-        const user = userCredential.user;
-        console.log(user, 59);
-        window.location.hash = '#/profile';
+        const user = result.user;
+        const displayName = user.multiFactor.user.displayName;
+        // console.log(user.multiFactor.user.displayName, 63);
+
+        if (user.emailVerified) {
+          // eslint-disable-next-line no-alert
+          alert(`Bienvenida ${displayName}`);
+          window.location.hash = '#/profile';
+        } else {
+          messageError(0, 'Por favor realiza la verificación de la cuenta en tu correo electrónico');
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -82,6 +90,10 @@ export default () => {
           case 'auth/email-already-in-use':
             messageError(2, '');
             messageError(1, 'El correo electrónico ya esta registrado y está siendo usado por otra cuenta');
+            break;
+          case 'auth/user-not-found':
+            messageError(2, '');
+            messageError(1, 'El correo electrónico y la contraseña NO están registrados');
             break;
           default:
             messageError(0, error.message);

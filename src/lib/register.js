@@ -80,15 +80,15 @@ export default () => {
       // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
     } else {
       registerUser(registerEmail, registerPassword)
-        .then(() => {
+        .then((result) => {
           // Signed in
-          /* const user = userCredential.user;
-          console.log(user.displayName, 20); */
+          const user = result.user;
+          console.log(user.displayName, 20);
           validationEmail().then(() => {
             // eslint-disable-next-line no-alert
-            alert('se envio mensaje de verificacion');
+            alert('se envio mensaje de verificacion a su correo electrónico');
           }).catch((e) => {
-            console.log(e);
+            console.log(e.message);
           });
           window.location.hash = '#/';
         })
