@@ -1,4 +1,5 @@
-export const validationEmail = () => firebase.auth().currentUser.sendEmailVerification();
+export const validationEmail = (email) => firebase.auth()
+  .currentUser.sendEmailVerification(email);
 
 /* **********Función para registrar usuario********** */
 export const loginUser = (email, password) => firebase.auth()
@@ -15,8 +16,6 @@ export const loginGoogle = () => {
     .signInWithPopup(providerGoogle);// popup para seleccionar cuenta google
   return loginwithGoogle;
 };
-
-// funcion para cerrar sesion
-export function logout() {
+export const logOut = () => {
   firebase.auth().signOut();
-}
+};
