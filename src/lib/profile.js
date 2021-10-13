@@ -22,14 +22,7 @@ export default () => {
                       <span class="edit-photo"><i class="fas fa-camera edit-photo-btn"></i></span>
                       <button id="subirfoto" class="btnUploadPhoto button" style="display: none;">Subir foto</button>
                     </label>
-                  </div>
-
-                  <section class="makePost">
-                    <input type="text" id="search" placeholder="Buscar">
-                    <textarea class="inputType" id="postTextarea" placeholder="Comparte con la comunidad"></textarea>
-                    <span id="errorPost" class="error"></span>
-                    <button class="button" id="btnPost">Publicar</button>
-                  </section>
+                  </div>             
 
                   </section> `;
 

@@ -1,19 +1,10 @@
 /******************** GENERAL *********************/
-* {
-  
-  margin: 0%;
-  padding: 0%;
-  *align-items: center;
-  align-content: center;
-  *justify-content: center;
- 
-}
 
 /********************* BODY nuevo todosss *******************/
 body {
   display: flex;
-  *margin: 45% 10%;
-  
+  margin: 0px; 
+  padding: 0%;
   text-align: center;
   
   background-color: rgba(184, 0, 52, 0.5);
@@ -226,11 +217,6 @@ input {
 }
 
 /********************PROFILE*********************/
-body {
-  padding: 0px;
-  margin: 0px;
-
-}
 
 #photoPortada {
   display: none;
