@@ -1,12 +1,12 @@
-.googleButton {
-  background-color: rgb(231, 31, 31);
-  padding: 6px 10px;
-}
-
 /******************** GENERAL *********************/
 * {
+  
   margin: 0%;
   padding: 0%;
+  *align-items: center;
+  align-content: center;
+  *justify-content: center;
+ 
 }
 
 .miPost {
@@ -46,25 +46,36 @@
 }
 
 /********************* BODY *******************/
+/********************* BODY nuevo todosss *******************/
+body {
+  display: flex;
+  *margin: 45% 10%;
+  
+  text-align: center;
+  
+  background-color: rgba(184, 0, 52, 0.5);
+} 
 
 /********************* HEADER *******************/
 
 /********************* HEADER *******************/
 header {
-  background-color: #f29bf3e5;
+  padding: 0%;
+  margin: 0%;
   width: 100%;
-  height: 50px;
-  *display: flex;
+  height: 15%;
+  display: flex;
   *justify-content: center;
+  background-color: #f29bf3e5;
 }
 .headerName {
   font-size: 30px;
   float: left;
-  margin: 20px 30px;
-  padding: 1% 3% 1% 3%;
+  *margin: 20px 30px;
+  *padding: 1% 3% 1% 3%;
 }
 /********************* NAVEGADOR *******************/
-/* .navegador {
+.navegador {
   *float: right;
   *overflow: hidden;
   display: flex;
@@ -74,25 +85,58 @@ header {
   float: right;
   padding: 1% 5%;
   margin-right: 40px;
-} */
-/******************** MAIN *********************/
+}
+.logoutBtn {
+  height: 90%;
+  width: 100%;
+  align-content: center;
+  align-items: center;
+  font-size: 100%; /******/
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  border-radius: 2em;
+  background-color: #d3057d;
+}
+/******************** MAIN nuevo todosssss*********************/
 main {
   display: flex;
+  margin: 10% 10% 60% 10%;/** agregado***/
   justify-content: center;
-  background-color: white;
-  height: 100%;
-  width: 100%;
+  height: 100%;  width: 100%;
+  
+}
+
+#container {
+  margin: 0%;
+  padding: 0%;
 }
 /******************** REGISTER/LOGIN*********************/
-
-.secLogo {
+/***nuevo todossss***/
+aside { 
+  width: 100%;
   justify-content: center;
-  margin: 0px 10%;
+  *background-color: rgba(242, 5, 92, 0.3); /** para destock*****/
+  *border-radius: 50px; /** para destock*****/
 }
 .formTitle {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+/*****google imagen nuevo todossssss******/
+.sectionImgFondo { 
+  background-color: rgb(241, 184, 213);
+  border-radius: 100%;
+}
+p.formGoogleImg {
+  width: 13%;
+  height: 13%;
+  display: flex;
+  margin: 0px 45%;
+  background-color: rgb(255, 254, 253);
+  border-radius: 50%;
+  border: 3px solid rgb(255, 255, 255);
+  
 }
 @media screen and (min-width: 1200px) {
   .secLogo {
@@ -117,15 +161,14 @@ main {
   }
 }
 /* NUEVO */
-.formGroup {
-  margin: 10px;
-  width: 60%;
-  justify-content: center;
+section.formGroup {
+  padding: 0%;
+  margin: 0px;
+  width: 100%;
   text-align: center;
-  align-items: center;
 }
 
-@media screen and (min-width: 200px) {
+@media screen and (min-width: 700px) {
   .formGroup {
     /*background-color: #f2035c;*/
     height: 60%;
@@ -153,31 +196,27 @@ main {
   height: 70%;
   width: 70%;
 }
-.formGoogleImg {
-  width: 5%;
-  height: 5%;
-  margin: 0px 45%;
-}
+
 /**nuevo*/
 
 label {
   /* Tamaño y alineación uniforme */
   *display: inline-block;
-  width: 90px;
+  width: 100%;
   text-align: center;
 }
-/**nuevo***/
-input {
+/**nuevo todossssss ***/
+input { 
+  padding: 0% ;
   /* Para asegurarse de que todos los campos de texto tienen la misma configuración de letra
      Por defecto, las áreas de texto tienen un tipo de letra monoespaciada */
   font: 1em sans-serif;
-
   /* Tamaño uniforme del campo de texto */
-  width: 300px;
+  width: 100%;
   box-sizing: border-box;
-
   /* Hacer coincidir los bordes del campo del formulario */
-  border: 1px solid #999;
+  border: 0.3em solid #d3057de5;
+  border-radius: 5em;
 }
 @media screen and (min-width: 800px) {
   .formLogin .formRegister {
@@ -194,28 +233,73 @@ input {
   }
 }
 
-.formGoogleImg {
-  width: 2%;
-  height: 2%;
-  display: flex;
-  margin: 0px 50%;
-}
 
-.formButton {
+
+.formButton {  
+  height: 90%;
+  width: 60%;
   align-content: center;
   align-items: center;
   font-size: 100%; /******/
-  height: 70%;
-  width: 50%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  border-radius: 2em;
+  background-color: #d3057d;
 }
 
-.registerAccountForm .loginSecForm {
+.registerSecForm .loginSecForm {
   align-content: center;
   position: center;
 }
-.registerSecion .loginSection {
+.registerSection .loginSection {
   align-content: center;
-  position: center;
+  text-align: center;
+  align-items: center;
+  *position: center;
+  background: rgba(184, 0, 51, 0.4);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 9px;
+}
+
+/********************PROFILE*********************/
+#photoPortada {
+  width: 100%;
+  height: 70%;
+  left: 63px;
+  top: 193px;
+
+  background: rgba(242, 5, 92, 0.4);
+  border-radius: 10px;
+  
+}
+  
+#imgPortada {
+  width: 240px;
+  height: 87px;
+  left: 79px;
+  top: 216px;
+
+  
+}
+.photoProfile{
+  
+  width: 100%;
+  height: 100%;
+  left: 65px;
+  top: 429px;
+
+  background: rgba(242, 5, 92, 0.4);
+  border-radius: 10px;
+  
+}
+.photo {    
+      width: 100px;
+      height: 100px;
+      margin-right: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+    
 }
 
 /********************FOOTER*********************/
@@ -223,7 +307,7 @@ input {
 footer {
   background-color: #ceccf3;
   width: 100%;
-  height: 80px;
+  height: 5%;
   display: flex;
   flex-flow: row wrap;
   align-items: center;

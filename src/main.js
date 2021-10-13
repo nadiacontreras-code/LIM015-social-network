@@ -1,9 +1,7 @@
-// import { login, logout } from './firebase/firebase-fn.js';
 // Este es el punto de entrada de tu aplicacion
 
-//
-
-// Se ejeccutara cuando nuestra pagina se recargue
+/* import { myFunction } from './lib/index.js';
+myFunction(); */
 
 import { changeView } from './spa/route.js';
 
@@ -15,38 +13,3 @@ const init = () => {
   window.addEventListener('hashchange', () => changeView(window.location.hash));
 };
 window.addEventListener('load', init);
-
-// ********* PROVANDO GIOVANNA  ****** */
-/* const secElement = `<section id="">
-<button id="btn-Google">Login con Google</button> <br>
-<button id="btn-OutLog" class="hidden">Cerrar Sesión</button>
-</section>`; */
-
-// document.getElementById('main').appendChild(secElement);
-// googlelogin
-
-/* const buttonLogin = document.querySelector('#btn-Google');
-const buttonLogout = document.querySelector('#btn-OutLog ');
-// let para mantener la variable del usuario logueado
-let currentUser;
-// metodo para saber si el usuario esta logueado o no
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    currentUser = user;
-    console.log('Usuario logueado', currentUser.displayName);
-  }
-});
-
-buttonLogin.addEventListener('click', async (e) => {
-  try {
-    currentUser = await login();
-  } catch (error) {
-    console.log(e);
-  }
-});
-
-buttonLogout.addEventListener('click', async (e) => {
-  logout();
-  console.log(e);
-}); */
-// ********* giovanaPrueba profile  ****** //

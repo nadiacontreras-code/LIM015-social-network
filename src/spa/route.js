@@ -1,6 +1,3 @@
-/* eslint-disable indent */
-// import desde VIEW/INDEX.JS porque
-
 /* traerme el window.location.hash cada vez que cambie la vista de
 la url para asociarlo con las vistas */
 // exporto a MAIN porque en main se esta escuchando el cambio de la url
@@ -13,11 +10,13 @@ const changeView = (route) => {
     case '':
     case '#':
     case '#/':
-      return container.appendChild(components.home());
+      return container.appendChild(components.login());
     case '#/registrate':
       return container.appendChild(components.registro());
     case '#/profile':
-      return container.appendChild(components.profile());
+      return container.appendChild(components.navegador())
+        && container.appendChild(components.profile())
+        && container.appendChild(components.publication());
     default:
       return container.appendChild(components.different());
   }

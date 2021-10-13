@@ -1,4 +1,4 @@
-import { registerUser } from '../firebase/firebase-fn.js';
+import { registerUser, validationEmail } from '../firebase/firebase-fn.js';
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -6,8 +6,7 @@ export default () => {
 
   const viewRegister = `
   <aside class="secLogo">
-  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
-  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>  
   </aside>
   <form class="registerAccountForm" id="registerAccount">
     <h1 class="formTitle">¡Registrate en 3B!</h1>
@@ -70,6 +69,16 @@ export default () => {
     function messageError(indice, message) {
       errorMessageForm[indice].innerHTML = `${message}`;
     }
+    // funcion para validar email
+    const validarEmail = () => {
+      validationEmail().then(() => {
+        // eslint-disable-next-line no-alert
+        alert('se envio mensaje de verificacion a su correo electrónico');
+      }).catch((e) => {
+        console.log(e);
+      });
+    };
+
     if (registerName === '' || registerLastname === '' || registerEmail === ''
       || registerPassword === '' || repeatPassword === '') {
       messageError(0, 'Debes que llenar todos los campos');
@@ -79,11 +88,12 @@ export default () => {
       messageError(5, 'Las contraseñas NO coinciden');
       // console.log(messageError(5, 'Las contraseñas no coinciden'), 89);
     } else {
-      registerUser(registerEmail.trim(), registerPassword.trim())
-        .then((userCredential) => {
+      registerUser(registerEmail, registerPassword)
+        .then((result) => {
           // Signed in
-          const user = userCredential.user;
+          const user = result.user;
           console.log(user.displayName, 20);
+          validarEmail();
           window.location.hash = '#/';
         })
         .catch((error) => {
