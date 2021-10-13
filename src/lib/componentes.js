@@ -7,6 +7,7 @@ import Profile from './profile.js';
 import Different from './error404.js';
 import Navegador from './navegador.js';
 
+
 const components = {
   login: Login,
   registro: Registro,

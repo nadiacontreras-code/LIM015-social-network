@@ -51,6 +51,7 @@ export default () => {
     function messageError(indice, message) {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
+
     loginUser(loginEmail, loginPassword)
       .then((result) => {
         // Signed in
@@ -84,6 +85,7 @@ export default () => {
             messageError(2, '');
             messageError(1, 'El correo electrónico no tiene el formato válido');
             break;
+
           case 'auth/email-already-in-use':
             messageError(2, '');
             messageError(1, 'El correo electrónico ya esta registrado y está siendo usado por otra cuenta');
@@ -99,19 +101,23 @@ export default () => {
   });
   const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
 
+  const validarEmail = () => {
+    validationEmail().then(() => {
+      alert('se envio mensaje de verificacion');
+    }).catch((e) => {
+      console.log(e);
+    });
+  };
+
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle().then(() => {
-      validationEmail().then(() => {
-        // eslint-disable-next-line no-alert
-        alert('se envio mensaje de verificacion');
-      }).catch((error) => {
-        console.log(error.message);
-      });
+      validarEmail();
       window.location.hash = '#/profile';
     }).catch((error) => {
       console.log(error);
     });
   });
+
   return loginSection;
 };

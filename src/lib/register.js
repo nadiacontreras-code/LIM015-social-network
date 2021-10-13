@@ -75,6 +75,7 @@ export default () => {
       validationEmail().then(() => {
         // eslint-disable-next-line no-alert
         alert('se envio mensaje de verificacion a su correo electrónico');
+
       }).catch((e) => {
         console.log(e);
       });
