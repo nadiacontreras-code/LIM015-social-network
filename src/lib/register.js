@@ -5,48 +5,44 @@ export default () => {
   registerSection.className = 'registerSection'; // mejorar la clase
 
   const viewRegister = `
-  <aside class="secLogo">
-  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>  
-  </aside>
-  <form class="registerAccountForm" id="registerAccount">
-    <h1 class="formTitle">¡Registrate en 3B!</h1>
-    <p>Los campos obligatorios se marcan con un (*).</p>
+  <section class="secLogoRegister">
+    <img class="registerLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
+  </section>
+  <form class="registerForm" id="registerAccount">
+    <h1>¡Registrate en 3B!</h1><br>
+    <p class="registerText">Los campos obligatorios se marcan con un (*).</p>
     <section class="registerSecForm">
-      <p class="formRegisterErrorMessage"></p>
-      <section class="formGroup">
-        <p class="formRegisterErrorMessage"></p>
-        <label for="registerName" >Nombre(s)*</label></br>
+      <p class="registerErrorMessage"></p>
+      <section class="inputGroupRegister">
+        <p class="registerErrorMessage"></p>
+        <label for="registerName" >Nombre(s)*</label>
         <input type="text" id="registerName" class="formRegister" autofocus="autofocus"
-        placeholder="María" ><br><br>
-      </section>
-      <section class="formGroup">
-        <p class="formRegisterErrorMessage"></p>
-        <label for ="registerLastname" >Apellidos*</label></br>
+        placeholder="María" >
+     
+        <p class="registerErrorMessage"></p>
+        <label for ="registerLastname" >Apellidos*</label>
         <input type="text" id="registerLastname" class="formRegister"  autofocus
-        placeholder="Casas" ><br><br>
-      </section>
-      <section class="formGroup">
-        <p class="formRegisterErrorMessage"></p>
-        <label for='registerEmail'>Correo Electrónico *</label></br>
+        placeholder="Casas" >
+     
+        <p class="registerErrorMessage"></p>
+        <label for='registerEmail'>Correo Electrónico *</label>
         <input type="email" id="registerEmail" class="formRegister"  autofocus
-        placeholder="mariaCasas@hotmail.com"><br><br>
-      </section>
-      <section class="formGroup">
-        <p class="formRegisterErrorMessage"></p>
-        <label for ="registerPassword"> Contraseña *</label></br>
+        placeholder="mariaCasas@hotmail.com">
+     
+        <p class="registerErrorMessage"></p>
+        <label for ="registerPassword"> Contraseña *</label>
         <input type="password" id="registerPassword" class="formRegister" minlength="6"  autofocus
-        placeholder="Contraseña"><br><br>
-      </section>
-      <section class="formGroup">
-        <p class="formRegisterErrorMessage"></p>
-        <label for ="repeatPassword"> Repite la Contraseña *</label></br>
+        placeholder="Contraseña">
+      
+        <p class="registerErrorMessage"></p>
+        <label for ="repeatPassword"> Repite la Contraseña *</label>
         <input type="password" id="repeatPassword" class="formRegister"  autofocus
-        placeholder="Contraseña"><br><br>
+        placeholder="Contraseña">
       </section>
-      <p class="formGroup">
-        <button id="registerFormBtn" class="formButton" type="submit">Registrarse</button><br><br>
+      <p class="registerButton">
+        <button id="registerFormBtn" class="allButtonRegister" type="submit">Registrarse</button>
       </p>
-      <p class="formText">Ya tienes cuenta?
+      <p class="registerText">Ya tienes cuenta?
         <a class="loginLink" href="#/" id="linkLogin"> Inicia Sesión</a>
       </p>
     </section>
@@ -64,7 +60,7 @@ export default () => {
     const registerEmail = registerSection.querySelector('#registerEmail').value;
     const registerPassword = registerSection.querySelector('#registerPassword').value;
     const repeatPassword = registerSection.querySelector('#repeatPassword').value;
-    const errorMessageForm = registerSection.getElementsByClassName('formRegisterErrorMessage');
+    const errorMessageForm = registerSection.getElementsByClassName('registerErrorMessage');
     //  console.log(errorMessage, 64);
     function messageError(indice, message) {
       errorMessageForm[indice].innerHTML = `${message}`;
