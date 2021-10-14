@@ -54,9 +54,13 @@ body {
   text-align: center;
   
   background-color: rgba(184, 0, 52, 0.5);
-} 
 
-/********************* HEADER *******************/
+  /*gio*/
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  
+} 
 
 /********************* HEADER *******************/
 header {
@@ -67,12 +71,24 @@ header {
   display: flex;
   *justify-content: center;
   background-color: #f29bf3e5;
+
+  
 }
 .headerName {
   font-size: 30px;
   float: left;
   *margin: 20px 30px;
   *padding: 1% 3% 1% 3%;
+}
+/***gio**/
+.headerMain{
+  /*gio*/
+  display: flex;
+  align-content: stretch;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  *grid-area: header;
+  height: 100%;
 }
 /********************* NAVEGADOR *******************/
 .navegador {
@@ -100,16 +116,21 @@ header {
 /******************** MAIN nuevo todosssss*********************/
 main {
   display: flex;
-  margin: 10% 10% 60% 10%;/** agregado***/
+  *margin: 10% 10% 60% 10%;/** agregado***/
   justify-content: center;
-  height: 100%;  width: 100%;
+  *height: 100%;  width: 100%;
   
 }
 
 #container {
   margin: 0%;
   padding: 0%;
+ /*gio*/
+  display: grid;
+  grid-template-areas: "header header header header";
+  
 }
+
 /******************** REGISTER/LOGIN*********************/
 /***nuevo todossss***/
 aside { 
@@ -233,7 +254,11 @@ input {
   }
 }
 
-
+/*gio*/
+button.formButton#btn-post{
+  display: flex;
+  align-items: flex-end;
+}
 
 .formButton {  
   height: 90%;
