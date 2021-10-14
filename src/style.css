@@ -210,7 +210,7 @@ input {
   padding: 0% ;
   /* Para asegurarse de que todos los campos de texto tienen la misma configuración de letra
      Por defecto, las áreas de texto tienen un tipo de letra monoespaciada */
-  font: 1em sans-serif;
+  font: 12px sans-serif;
   /* Tamaño uniforme del campo de texto */
   width: 100%;
   box-sizing: border-box;
