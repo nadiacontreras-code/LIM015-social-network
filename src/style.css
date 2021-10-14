@@ -1,19 +1,23 @@
 /******************** GENERAL *********************/
 
 /********************* BODY nuevo todosss *******************/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+/********************* HEADER *******************/
 body {
-  display: flex;
-  margin: 0px; 
-  padding: 0%;
-  text-align: center;
-  
-  background-color: rgba(184, 0, 52, 0.5);
-} 
-
+  display: inline;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(
+    237,
+    243,
+    237
+  ); /*para entender de de lo que sale del footer*/
+}
 /********************* HEADER *******************/
-
-/********************* HEADER *******************/
-header {
+/* header {
   padding: 0%;
   margin: 0%;
   width: 100%;
@@ -27,9 +31,9 @@ header {
   float: left;
   *margin: 20px 30px;
   *padding: 1% 3% 1% 3%;
-}
+} */
 /********************* NAVEGADOR *******************/
-.navegador {
+/* .navegador {
   *float: right;
   *overflow: hidden;
   display: flex;
@@ -45,40 +49,91 @@ header {
   width: 100%;
   align-content: center;
   align-items: center;
-  font-size: 100%; /******/
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 100%; /******
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: white;
   border-radius: 2em;
   background-color: #d3057d;
-}
+} */
 /******************** MAIN nuevo todosssss*********************/
 main {
+  /**nadia*/
   display: flex;
-  margin: 10% 10% 60% 10%;/** agregado***/
+  margin: 0% auto; /** agregado***/
+  padding: 10% 20%;
   justify-content: center;
-  height: 100%;  width: 100%;
-  
+  height: 100%;
+  width: 100%;
+  background-color: rgba(184, 0, 52, 0.5);
+  *background-color: red;
 }
 
 #container {
-  margin: 0%;
+  display: flex;
+  margin: 0% auto;
   padding: 0%;
+  height: 100%;
+  width: 100%;
 }
 /******************** REGISTER/LOGIN*********************/
-/***nuevo todossss***/
-aside { 
-  width: 100%;
-  justify-content: center;
-  *background-color: rgba(242, 5, 92, 0.3); /** para destock*****/
-  *border-radius: 50px; /** para destock*****/
-}
-.formTitle {
+/******************** LOGIN *********************/
+/**nuevo*/
+.formLogin {
   align-items: center;
   justify-content: center;
   text-align: center;
 }
+.formLogin {
+  text-align: center;
+  font-size: 100%; /******/
+  height: 70%;
+  width: 70%;
+}
+/***nuevo todossss***/
+/* aside {
+  width: 100%;
+  justify-content: center;
+  *background-color: rgba(242, 5, 92, 0.3); /** para destock*****
+  *border-radius: 50px; /** para destock*****
+} */
+.registerSecForm .loginSecForm {
+  align-content: center;
+  position: center;
+}
+.registerSection .loginSection {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  *position: center;
+  background: rgba(184, 0, 51, 0.4);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 9px;
+}
+/* NUEVO */
+section.formGroup {
+  padding: 0%;
+  margin: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.formButton {
+  height: 90%;
+  width: 60%;
+  align-content: center;
+  align-items: center;
+  font-size: 100%; /******/
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  border-radius: 2em;
+  background-color: #d3057d;
+}
+
 /*****google imagen nuevo todossssss******/
-.sectionImgFondo { 
+.sectionImgFondo {
   background-color: rgb(241, 184, 213);
   border-radius: 100%;
 }
@@ -90,7 +145,6 @@ p.formGoogleImg {
   background-color: rgb(255, 254, 253);
   border-radius: 50%;
   border: 3px solid rgb(255, 255, 255);
-  
 }
 @media screen and (min-width: 1200px) {
   .secLogo {
@@ -114,13 +168,6 @@ p.formGoogleImg {
     *position: left;
   }
 }
-/* NUEVO */
-section.formGroup {
-  padding: 0%;
-  margin: 0px;
-  width: 100%;
-  text-align: center;
-}
 
 @media screen and (min-width: 700px) {
   .formGroup {
@@ -136,21 +183,6 @@ section.formGroup {
     margin: 10% 15% 0% 20%;
   }
 }
-
-/******************** LOGIN *********************/
-/**nuevo*/
-.formLogin {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.formLogin {
-  text-align: center;
-  font-size: 100%; /******/
-  height: 70%;
-  width: 70%;
-}
-
 /**nuevo*/
 
 label {
@@ -160,8 +192,8 @@ label {
   text-align: center;
 }
 /**nuevo todossssss ***/
-input { 
-  padding: 0% ;
+input {
+  padding: 0%;
   /* Para asegurarse de que todos los campos de texto tienen la misma configuración de letra
      Por defecto, las áreas de texto tienen un tipo de letra monoespaciada */
   font: 12px sans-serif;
@@ -171,6 +203,7 @@ input {
   /* Hacer coincidir los bordes del campo del formulario */
   border: 0.3em solid #d3057de5;
   border-radius: 5em;
+  background-color: white;
 }
 @media screen and (min-width: 800px) {
   .formLogin .formRegister {
@@ -187,35 +220,6 @@ input {
   }
 }
 
-
-
-.formButton {  
-  height: 90%;
-  width: 60%;
-  align-content: center;
-  align-items: center;
-  font-size: 100%; /******/
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
-  border-radius: 2em;
-  background-color: #d3057d;
-}
-
-.registerSecForm .loginSecForm {
-  align-content: center;
-  position: center;
-}
-.registerSection .loginSection {
-  align-content: center;
-  text-align: center;
-  align-items: center;
-  *position: center;
-  background: rgba(184, 0, 51, 0.4);
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 9px;
-}
-
 /********************PROFILE*********************/
 
 #photoPortada {
@@ -224,13 +228,12 @@ input {
   margin: 10px;
   padding: 15px;
   width: 87%;
-      
+
   left: 45px;
   top: 229px;
-      
+
   background: rgba(242, 5, 92, 0.4);
   border-radius: 10px;
-  
 }
 
 #imgPortada {
@@ -240,45 +243,40 @@ input {
   top: 216px;
   justify-content: space-between;
   border-radius: 10px;
-
-  
 }
-.photoProfile{
+.photoProfile {
   display: flex;
   margin: 10px;
   padding: 20px 30px 20px 30px;
   width: 79%;
-  
+
   *left: 65px;
   top: 429px;
-  
 
   background: rgba(242, 5, 92, 0.4);
   border-radius: 10px;
-  
 }
-.photo {    
-      width: 130px;
-      height: 130px;
-      margin-right: 15px;
-      border-radius: 50%;
-      cursor: pointer;
-    
+.photo {
+  width: 130px;
+  height: 130px;
+  margin-right: 15px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 .userinfo {
-  display: flexbox; 
+  display: flexbox;
   margin-left: 9px;
-  padding: 10px; 
+  padding: 10px;
   font-size: 18px;
   justify-content: space-between;
 }
 .username1 {
-  display: flexbox; 
+  display: flexbox;
   padding-bottom: 0px;
   margin-top: 7px;
   margin-bottom: 0px;
   margin-right: 6px;
-  font-family: "Roboto", sans-serif;;
+  font-family: "Roboto", sans-serif;
 }
 
 /********************FOOTER*********************/
@@ -286,12 +284,13 @@ input {
 footer {
   background-color: #ceccf3;
   width: 100%;
-  height: 5%;
-  display: flex;
+  height: 100%;
+
+  /* display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  *position: absolute; /*desarivado para que se quede abajo
   bottom: 0;
-  left: 0;
+  left: 0; */
 }

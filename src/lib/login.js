@@ -5,14 +5,13 @@ export default () => {
   loginSection.className = 'loginSection';
   const viewLogin = `
 
-  <aside class="secLogo">
+  <section class="secLogo"> <!-- de aside a section-->
   <section class="sectionImgFondo">
   <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" />
   </section><br><br>
   <h1>¡Bienvenidos a <strong>3B</strong>!</h1>
-  </aside>
+  </section>
   <form class="loginform" id="login">
-    <h1 class="formTitle">Login</h1>
     <section class="loginSecForm">
       <p class="formLoginErrorMessage"></p>
       <section class="formGroup">
