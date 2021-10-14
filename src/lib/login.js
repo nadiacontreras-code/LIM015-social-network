@@ -6,8 +6,10 @@ export default () => {
   const viewLogin = `
 
   <aside class="secLogo">
-  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
-  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  <section class="sectionImgFondo">
+  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" />
+  </section><br><br>
+  <h1>¡Bienvenidos a <strong>3B</strong>!</h1>
   </aside>
   <form class="loginform" id="login">
     <h1 class="formTitle">Login</h1>
@@ -29,7 +31,7 @@ export default () => {
       <p class="formLoginErrorMessage"></p>
       <section class="formGoogle">
           <p class="formText"> O bien ingresa con...</p><br>
-          <img class="formGoogleImg" src= "img/googleIcono.png" alt="Iniciar sesion Google"/><br>
+          <p class="formGoogleImg"><img  src= "img/googleIcono.png" alt="Iniciar sesion Google"/></p><br>
       </section>
       <section class="formGroup">
           <p class="formText">No tienes una cuenta?
@@ -53,6 +55,7 @@ export default () => {
     function messageError(indice, message) {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
+
     loginUser(loginEmail, loginPassword)
       .then((result) => {
         // Signed in
@@ -86,6 +89,7 @@ export default () => {
             messageError(2, '');
             messageError(1, 'El correo electrónico no tiene el formato válido');
             break;
+
           case 'auth/email-already-in-use':
             messageError(2, '');
             messageError(1, 'El correo electrónico ya esta registrado y está siendo usado por otra cuenta');
@@ -101,23 +105,24 @@ export default () => {
   });
   const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
 
-  const googleValidate = () => {
+  const validarEmail = () => {
     validationEmail().then(() => {
       // eslint-disable-next-line no-alert
       alert('se envio mensaje de verificacion');
-    }).catch((error) => {
-      console.log(error.message);
+    }).catch((e) => {
+      console.log(e);
     });
   };
 
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle().then(() => {
-      googleValidate();
+      validarEmail();
       window.location.hash = '#/profile';
     }).catch((error) => {
       console.log(error);
     });
   });
+
   return loginSection;
 };

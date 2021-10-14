@@ -6,8 +6,7 @@ export default () => {
 
   const viewRegister = `
   <aside class="secLogo">
-  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
-  <h1>3B la red de personas que buscan lo bueno, bonito y barato de la vida.</h1>
+  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>  
   </aside>
   <form class="registerAccountForm" id="registerAccount">
     <h1 class="formTitle">¡Registrate en 3B!</h1>
