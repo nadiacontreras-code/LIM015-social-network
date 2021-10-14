@@ -30,7 +30,7 @@ export default () => {
           console.log(result, 25);
           console.log('el usuario ha cerrado sesión');
           const displayName = result.user.multiFactor.user.displayName;
-
+          console.log(displayName);
           window.location.hash = '#/';
         }).catch((error) => {
           console.log(error.message, 29);
