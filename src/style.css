@@ -1,5 +1,5 @@
 /******************** GENERAL *********************/
-* {
+body {
   margin: 0%;
   padding: 0%;
 }
@@ -46,6 +46,11 @@ main {
   height: 100%;
   width: 100%;
   background-color: rgba(184, 0, 51, 0.4);
+  bottom: 0;
+}
+#container {
+  bottom: 0;
+  *display: flex;
 }
 /******************** REGISTER/LOGIN*********************/
 /***nuevo***/

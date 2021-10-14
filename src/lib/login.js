@@ -35,18 +35,20 @@ export default () => {
           <p class="formText">No tienes una cuenta?
           <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
           </p>
-          </section>
+      </section>
     </section>
   </form>`;
 
   loginSection.innerHTML = viewLogin;
-  // document.getElementById('container').appendChild(secElement);
+
   const login = loginSection.querySelector('#loginFormBtn');
+  // funcionalidad para boton
   login.addEventListener('click', (event) => {
     event.preventDefault();
+    // declarando  variables
     const loginEmail = loginSection.querySelector('#loginEmail').value;
     const loginPassword = loginSection.querySelector('#loginPassword').value;
-    console.log(loginEmail, loginPassword);
+    // console.log(loginEmail, loginPassword);
     const errorMessageLogin = loginSection.getElementsByClassName('formLoginErrorMessage');
     function messageError(indice, message) {
       errorMessageLogin[indice].innerHTML = `${message}`;
@@ -99,15 +101,19 @@ export default () => {
   });
   const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
 
+  const googleValidate = () => {
+    validationEmail().then(() => {
+      // eslint-disable-next-line no-alert
+      alert('se envio mensaje de verificacion');
+    }).catch((error) => {
+      console.log(error.message);
+    });
+  };
+
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle().then(() => {
-      validationEmail().then(() => {
-        // eslint-disable-next-line no-alert
-        alert('se envio mensaje de verificacion');
-      }).catch((error) => {
-        console.log(error.message);
-      });
+      googleValidate();
       window.location.hash = '#/profile';
     }).catch((error) => {
       console.log(error);

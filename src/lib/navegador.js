@@ -1,4 +1,4 @@
-// import { logOut } from '../firebase/firebase-fn.js';
+// import { logOut } from '../firebase/firebase-fn';
 
 export default () => {
   const headerMain = document.createElement('header');
