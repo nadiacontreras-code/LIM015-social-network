@@ -5,40 +5,32 @@ export default () => {
   loginSection.className = 'loginSection';
   const viewLogin = `
 
-  <aside class="secLogo">
-  <section class="sectionImgFondo">
-  <img class="formLogo" src="img/logo_muñeca.png" alt="Logo3B" />
-  </section><br><br>
-  <h1>¡Bienvenidos a <strong>3B</strong>!</h1>
-  </aside>
+  <section class="secLogoLogin">
+    <img class="logoLogin" src="img/logo_muñeca.png" alt="Logo3B" />    
+    <h1>¡Bienvenidos a <strong>3B</strong>!</h1>
+  </section>
   <form class="loginform" id="login">
-    <h1 class="formTitle">Login</h1>
-    <section class="loginSecForm">
-      <p class="formLoginErrorMessage"></p>
-      <section class="formGroup">
-        <p class="formLoginErrorMessage"></p>
-        <label for="loginEmail" ></label></br>
-        <input type="email" id="loginEmail" class="formLogin" autofocus placeholder="correo electronico"><br>
+      <p class="loginErrorMessage"></p>
+      <section class="inputGroup">
+        <p class="loginErrorMessage"></p>
+        <label for="loginEmail" ></label>
+        <input type="email" id="loginEmail" class="inputLogin" autofocus placeholder="correo electronico">
+        <p class="loginErrorMessage"></p>
+        <label for="loginPassword" ></label>
+        <input type="password" id="loginPassword" class="inputLogin" autofocus placeholder="Contraseña">
       </section>
-      <section class="formGroup">
-          <p class="formLoginErrorMessage"></p>
-          <label for="loginPassword" ></label></br>
-          <input type="password" id="loginPassword" class="formLogin" autofocus placeholder="Contraseña"><br></br>
-      </section>
-      <p class="formGroup">
-        <button id="loginFormBtn" class="formButton" type="button">Iniciar Sesión</button><br><br>
+      <p class="loginButton">
+        <button id="loginFormBtn" class="allButton" type="button">Iniciar Sesión</button>
       </p>
-      <p class="formLoginErrorMessage"></p>
-      <section class="formGoogle">
-          <p class="formText"> O bien ingresa con...</p><br>
-          <p class="formGoogleImg"><img  src= "img/googleIcono.png" alt="Iniciar sesion Google"/></p><br>
+      <section class="loginGoogle">
+          <p class="loginText"> O bien ingresa con...</p>
+          <p class="loginGoogleImg"><img  src= "img/googleIcono.png" alt="Iniciar sesion Google"/></p>
       </section>
-      <section class="formGroup">
-          <p class="formText">No tienes una cuenta?
-          <a class="formLink" href="#/registrate" id="linkCreateAccount"><span> Registrate<span></a>
+      <section class="optionRegister">
+          <p class="optionRegisterText">No tienes una cuenta?
+          <a class="formLink" href="#/registrate" id="linkCreateAccount"><span>Registrate<span></a>
           </p>
-          </section>
-    </section>
+      </section>   
   </form>`;
 
   loginSection.innerHTML = viewLogin;
@@ -49,7 +41,7 @@ export default () => {
     const loginEmail = loginSection.querySelector('#loginEmail').value;
     const loginPassword = loginSection.querySelector('#loginPassword').value;
     console.log(loginEmail, loginPassword);
-    const errorMessageLogin = loginSection.getElementsByClassName('formLoginErrorMessage');
+    const errorMessageLogin = loginSection.getElementsByClassName('loginErrorMessage');
     function messageError(indice, message) {
       errorMessageLogin[indice].innerHTML = `${message}`;
     }
@@ -101,7 +93,7 @@ export default () => {
         }
       });
   });
-  const btnLoginGoogle = loginSection.querySelector('.formGoogleImg');
+  const btnLoginGoogle = loginSection.querySelector('.loginGoogleImg');
 
   const validarEmail = () => {
     validationEmail().then(() => {
