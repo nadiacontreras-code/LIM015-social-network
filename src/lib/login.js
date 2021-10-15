@@ -12,7 +12,6 @@ export default () => {
   <h1>¡Bienvenidos a <strong>3B</strong>!</h1>
   </aside>
   <form class="loginform" id="login">
-    <h1 class="formTitle">Login</h1>
     <section class="loginSecForm">
       <p class="formLoginErrorMessage"></p>
       <section class="formGroup">

@@ -21,4 +21,3 @@ onAuthStateChanged(auth, user => { console.log(user); }); */
 
 // eslint-disable-next-line no-unused-vars
 const db = firebase.firestore(); // para firestore
-

@@ -6,7 +6,9 @@
   *align-items: center;
   align-content: center;
   *justify-content: center;
- 
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.01em;
+
 }
 
 .miPost {
@@ -26,13 +28,7 @@
   flex-direction: column;
 }
 
-.formButton{
-  background-color: #d3057d;
-  padding: 6px 8px;
-  border-radius: 2em;
-  
-  
-}
+
 
 #todo-input {
   text-align:justify;
@@ -53,9 +49,11 @@ body {
   
   text-align: center;
   
-  background-color: rgba(184, 0, 52, 0.5);
-
+  
   /*gio*/
+  *background: rgba(184, 0, 51, 0.4);
+  background: #ECCCE2;
+
   width: 90%;
   max-width: 1000px;
   margin: 20px auto;
@@ -127,7 +125,7 @@ main {
   padding: 0%;
  /*gio*/
   display: grid;
-  grid-template-areas: "header header header header";
+  grid-template-areas: "header header";
   
 }
 
@@ -146,7 +144,7 @@ aside {
 }
 /*****google imagen nuevo todossssss******/
 .sectionImgFondo { 
-  background-color: rgb(241, 184, 213);
+  background-color:rgba(242, 5, 92, 0.79);
   border-radius: 100%;
 }
 p.formGoogleImg {
@@ -255,9 +253,9 @@ input {
 }
 
 /*gio*/
-button.formButton#btn-post{
-  display: flex;
-  align-items: flex-end;
+button.formButton#btn-post {
+
+  text-align: center;
 }
 
 .formButton {  
@@ -270,6 +268,7 @@ button.formButton#btn-post{
   color: white;
   border-radius: 2em;
   background-color: #d3057d;
+  padding: 6px 8px;
 }
 
 .registerSecForm .loginSecForm {
