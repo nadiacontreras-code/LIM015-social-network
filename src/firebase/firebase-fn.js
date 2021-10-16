@@ -4,6 +4,23 @@ export const validationEmail = () => firebase.auth().currentUser.sendEmailVerifi
 // eslint-disable-next-line max-len
 export const loginUser = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
+/* ********Función para saber estado del usuario************* */
+export const getUserInfo = () => {
+  const currentUser = firebase.auth().currentUser;
+
+  // Obtener la info del usuario
+  const uid = currentUser.uid;
+  const name = currentUser.displayName;
+  const email = currentUser.email;
+  const photo = currentUser.photoURL;
+
+  // Guardar la info en localStorage
+  localStorage.setItem('uid', uid);
+  localStorage.setItem('name', name);
+  localStorage.setItem('email', email);
+  localStorage.setItem('photo', photo);
+  console.log(name, email, photo);
+};
 /* **********Función para registrar usuario********** */
 export const registerUser = (email, password) => firebase.auth()
   .createUserWithEmailAndPassword(email, password);
@@ -18,4 +35,10 @@ export const loginGoogle = () => {
 };
 export const logOut = () => {
   firebase.auth().signOut();
+};
+
+/** *****Para subir imagen************************** */
+export const uploadImage = (imgFile, directory) => {
+  const storageRef = firebase.storage().ref(`${directory}/${imgFile.name}`);
+  return storageRef.put(imgFile);
 };
