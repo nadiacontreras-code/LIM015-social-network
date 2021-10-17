@@ -56,8 +56,6 @@ export default () => {
         // console.log(user.emailVerified, 64);
 
         if (user.emailVerified) {
-          // eslint-disable-next-line no-alert
-          // alert(`Bienvenida ${displayName}`);
           window.location.hash = '#/profile';
         } else {
           messageError(0, 'Por favor realiza la verificación de la cuenta en tu correo electrónico');

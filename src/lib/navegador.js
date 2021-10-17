@@ -19,19 +19,16 @@ export default () => {
 
   // cerrar sesión
   const logOutBtn = headerMain.querySelector('.logoutBtn');
-  console.log(logOutBtn);
+  // console.log(logOutBtn);
   logOutBtn.addEventListener('click', (event) => {
     event.preventDefault();
     console.log(10);
     const logOut = () => {
       firebase.auth().signOut()
         // logOut()
-        .then((result) => {
-          console.log(result, 25);
+        .then(() => {
           console.log('el usuario ha cerrado sesión');
           window.location.hash = '#/';
-          const displayName = result.user;
-          console.log(displayName);
         }).catch((error) => {
           console.log(error.message, 29);
         });

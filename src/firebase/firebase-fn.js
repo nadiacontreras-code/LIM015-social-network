@@ -16,6 +16,7 @@ export const loginGoogle = () => {
     .signInWithPopup(providerGoogle);// popup para seleccionar cuenta google
   return loginwithGoogle;
 };
+/* **********Función para cerrar sesión con google********** */
 export const logOut = () => {
   firebase.auth().signOut();
 };
@@ -58,3 +59,19 @@ export const catchUserInfo = (captureName, captureLastName, captureEmail) => {
     });
 };
 // catchUserInfo();
+/** **Sesion activa del ususario / USADO EN ROUTER */
+/* const userState = () => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log(user);
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      console.log(uid);
+      // ...
+    } else {
+      // User is signed out
+      console.log('ha cerrado sesión');
+    }
+  });
+}; */
