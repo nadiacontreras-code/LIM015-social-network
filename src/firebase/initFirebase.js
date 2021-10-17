@@ -16,9 +16,6 @@ const firebaseConfig = {
 // Initialize Firebase
 // firebase.initializeApp(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
-/* const auth = firebaseApp.auth();
-onAuthStateChanged(auth, user => { console.log(user); }); */
-
-// eslint-disable-next-line no-unused-vars
 const db = firebase.firestore(); // para firestore
-
+console.log(db);
+// eslint-disable-next-line no-unused-vars
