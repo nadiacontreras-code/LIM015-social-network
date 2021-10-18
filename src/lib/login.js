@@ -1,4 +1,6 @@
-import { loginGoogle, loginUser, getUserInfo } from '../firebase/firebase-fn.js';
+import { loginGoogle, loginUser } from '../firebase/firebase-fn.js';
+
+// import { addUser } from '../firebase/firebaseStore.js';
 
 export default () => {
   const loginSection = document.createElement('section');
@@ -57,7 +59,7 @@ export default () => {
           // eslint-disable-next-line no-alert
           alert(`Bienvenida ${displayName}`);
           window.location.hash = '#/profile';
-          getUserInfo();
+          // saveUser(user);
         } else {
           messageError(0, 'Por favor realiza la verificación de la cuenta en tu correo electrónico');
         }
@@ -106,24 +108,27 @@ export default () => {
     });
   };
   */
+
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    loginGoogle().then((result) => {
-      const user = result.user;
-      console.log(user);
-      const displayName = user.multiFactor.user.displayName;
-      console.log(displayName);
-      // validarEmail();
-      if (user.emailVerified) {
+    loginGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        const displayName = user.multiFactor.user.displayName;
+        const photoURL = user.photoURL;
+        console.log(photoURL);
+        console.log(displayName);
+        // getUser();
+        // validarEmail();
+        if (user.emailVerified) {
         // eslint-disable-next-line no-alert
-        alert(`Bienvenida ${displayName}`);
+          alert(`Bienvenida ${displayName}`);
+          window.location.hash = '#/profile';
+        }
         window.location.hash = '#/profile';
-        getUserInfo();
-      }
-      window.location.hash = '#/profile';
-    }).catch((error) => {
-      console.log(error);
-    });
+      });
   });
+
   return loginSection;
 };
