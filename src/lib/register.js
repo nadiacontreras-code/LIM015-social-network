@@ -1,4 +1,5 @@
 import { registerUser, validationEmail } from '../firebase/firebase-fn.js';
+import { catchUserInfo } from '../firebase/firestore.js';
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -6,7 +7,7 @@ export default () => {
 
   const viewRegister = `
   <section class="secLogoRegister">
-    <img class="registerLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>  
+    <img class="registerLogo" src="img/logo_muñeca.png" alt="Logo3B" /><br><br>
   </section>
   <form class="registerForm" id="registerAccount">
     <h1>¡Registrate en 3B!</h1><br>
@@ -87,10 +88,14 @@ export default () => {
       registerUser(registerEmail, registerPassword)
         .then((result) => {
           // Signed in
-          const user = result.user;
-          console.log(user.displayName, 20);
+          // console.log(result.user.multiFactor.user);
+          const uniqueId = result.user.multiFactor.user.uid;
+          // console.log(result.user.multiFactor.user.uid);
+          /* const emailVerified = result.user.multiFactor.user.emailVerified;
+           console.log(emailVerified); */
           validarEmail();
           window.location.hash = '#/';
+          catchUserInfo(registerName, registerLastname, registerEmail, uniqueId);
         })
         .catch((error) => {
           const errorCode = error.code;

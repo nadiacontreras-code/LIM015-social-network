@@ -2,16 +2,16 @@ export default () => {
   const profileview = document.createElement('section');
   profileview.className = 'perfilSection';
   const prueba = `<section class="userProfile">
-                    <div id="photoPortada">
+                   <!-- <div id="photoPortada">
                       <img id="imgPortada" src="img/lago.jpg" alt="foto-portada">
-                    </div>
+                    </div>-->
                     <div class="photoProfile">
                       <img class="photo" src="img/chica.jpg"></img>
-                      <div class="userinfo">
+                    <!--  <div class="userinfo">
                         <p class="username1">Juan Perez aaaaaaaaa</p>
                         <p class="username1">Juan Perez</p>
                         <p class="username1">Juan Perez</p>
-                      </div>
+                      </div>-->
                     </div>
                   </section>
 
