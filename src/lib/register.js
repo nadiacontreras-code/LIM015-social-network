@@ -1,5 +1,5 @@
-import { registerUser, validationEmail, catchUserInfo } from '../firebase/firebase-fn.js';
-// import { getUserInfo } from '../firebase/initFirebase.js';
+import { registerUser, validationEmail } from '../firebase/firebase-fn.js';
+import { catchUserInfo } from '../firebase/firestore.js';
 
 export default () => {
   const registerSection = document.createElement('section');
@@ -88,12 +88,14 @@ export default () => {
       registerUser(registerEmail, registerPassword)
         .then((result) => {
           // Signed in
-          console.log(result.user.multiFactor.user);
-          const emailVerified = result.user.multiFactor.user.emailVerified;
-          console.log(emailVerified);
+          // console.log(result.user.multiFactor.user);
+          const uniqueId = result.user.multiFactor.user.uid;
+          // console.log(result.user.multiFactor.user.uid);
+          /* const emailVerified = result.user.multiFactor.user.emailVerified;
+           console.log(emailVerified); */
           validarEmail();
           window.location.hash = '#/';
-          catchUserInfo(registerName, registerLastname, registerEmail);
+          catchUserInfo(registerName, registerLastname, registerEmail, uniqueId);
         })
         .catch((error) => {
           const errorCode = error.code;

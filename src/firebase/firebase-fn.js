@@ -26,52 +26,17 @@ export const uploadImage = (imgFile, directory) => {
   const storageRef = firebase.storage().ref(`${directory}/${imgFile.name}`);
   return storageRef.put(imgFile);
 };
-
-export const getUserInfo = () => {
-  const currentUser = firebase.auth().currentUser;
-
-  // Obtener la info del usuario
-  const uid = currentUser.uid;
-  const name = currentUser.displayName;
-  const email = currentUser.email;
-  const photo = currentUser.photoURL;
-
-  // Guardar la info en localStorage
-  localStorage.setItem('uid', uid);
-  localStorage.setItem('name', name);
-  localStorage.setItem('email', email);
-  localStorage.setItem('photo', photo);
-  console.log(name, email, photo, 43);
+// -------- FUNCIÓN QUE CONTIENE INFORMACIÓN EN UN OBJETO DEL CURRENT USER --------//
+export const getCurrentUser = () => {
+  const user = firebase.auth().currentUser;
+  let dataUser = '';
+  if (user !== null) {
+    dataUser = {
+      name: user.displayName,
+      photo: user.photoURL,
+      uid: user.uid,
+      email: user.email,
+    };
+  }
+  return dataUser;
 };
-const db = firebase.firestore();
-export const catchUserInfo = (captureName, captureLastName, captureEmail) => {
-  db.collection('pruebaNadia').add({
-    name: captureName,
-    lastName: captureLastName,
-    email: captureEmail,
-  })
-    .then((docRef) => {
-      console.log('Document written with ID: ', docRef.id);
-      console.log(docRef);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
-};
-// catchUserInfo();
-/** **Sesion activa del ususario / USADO EN ROUTER */
-/* const userState = () => {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      console.log(user);
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      console.log(uid);
-      // ...
-    } else {
-      // User is signed out
-      console.log('ha cerrado sesión');
-    }
-  });
-}; */
