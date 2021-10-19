@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { loginGoogle, loginUser } from '../firebase/firebase-fn.js';
 
 export default () => {
@@ -59,6 +60,7 @@ export default () => {
 
         if (user.emailVerified) {
           window.location.hash = '#/profile';
+          // saveUser(user);
         } else {
           messageError(0, 'Por favor realiza la verificación de la cuenta en tu correo electrónico');
         }

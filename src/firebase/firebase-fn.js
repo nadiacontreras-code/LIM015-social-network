@@ -21,6 +21,8 @@ export const logOut = () => {
   firebase.auth().signOut();
 };
 
+export const userSessionActive = (callback) => firebase.auth().onAuthStateChanged(callback);
+
 /** *****Para subir imagen************************** */
 export const uploadImage = (imgFile, directory) => {
   const storageRef = firebase.storage().ref(`${directory}/${imgFile.name}`);

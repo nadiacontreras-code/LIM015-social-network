@@ -166,6 +166,13 @@ label {
   display: flex;
   justify-content: space-between;
   background-color: #f29bf3e5;
+  /****gio***/
+  display: flex;
+  align-content: stretch;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  *grid-area: header;
+  height: 100%;
 }
 
 /********************* NAVEGADOR *******************/

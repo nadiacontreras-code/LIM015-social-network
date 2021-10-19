@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { registerUser, validationEmail } from '../firebase/firebase-fn.js';
 import { catchUserInfo } from '../firebase/firestore.js';
 

@@ -1,31 +1,29 @@
+// eslint-disable-next-line import/named
+import { getCurrentUser } from '../firebase/firebase-fn.js';
+
 export default () => {
-  const profileview = document.createElement('section');
-  profileview.className = 'perfilSection';
-  const prueba = `<section class="userProfile">
-                   <!-- <div id="photoPortada">
-                      <img id="imgPortada" src="img/lago.jpg" alt="foto-portada">
-                    </div>-->
-                    <div class="photoProfile">
-                      <img class="photo" src="img/chica.jpg"></img>
-                    <!--  <div class="userinfo">
-                        <p class="username1">Juan Perez aaaaaaaaa</p>
-                        <p class="username1">Juan Perez</p>
-                        <p class="username1">Juan Perez</p>
-                      </div>-->
-                    </div>
-                  </section>
+  const photo = getCurrentUser().photo;
+  const name = getCurrentUser().name;
+  const viewFeed = `
+    <main id="feedSection">
+  
+      <article id="user-info">
+              <img class="userImage" src="${photo === null ? '../img/chica.jpg' : photo}" width= "120" alt="Foto de perfil">
+              <h2 class="user-name profile-name" id="nameUserProfile">${name}</h2>
+          <article class="user-information">
+              <textarea placeholder="Cuéntanos sobre ti..." id="post"></textarea>
+          </article>
+      </article>
+      <form class="formPost">
+          <img class="userPhotoFeed" src="${photo === null ? '../img/chica.jpg' : photo}" width= "80" alt="userPhoto">
+          <h2 class="user-name profile-name" id="nameUserProfile">${name}</h2>
+      </form>
+    </main>
+    `;
 
-                  <div>
-                    
-                    <label id="select-profile" for="select-photo-profile">
-                      <input type="file" id="select-photo-profile" class="inputUploadPhoto hide" accept="image/jpeg, image/png">
-                      <span class="edit-photo"><i class="fas fa-camera edit-photo-btn"></i></span>
-                      <button id="subirfoto" class="btnUploadPhoto button" style="display: none;">Subir foto</button>
-                    </label>
-                  </div>             
+  const divElement = document.createElement('div');
+  divElement.setAttribute('class', 'feed');
+  divElement.innerHTML = viewFeed;
 
-                  </section> `;
-
-  profileview.innerHTML = prueba;
-  return profileview;
+  return divElement;
 };
