@@ -1,6 +1,5 @@
+// eslint-disable-next-line import/named
 import { loginGoogle, loginUser } from '../firebase/firebase-fn.js';
-
-// import { addUser } from '../firebase/firebaseStore.js';
 
 export default () => {
   const loginSection = document.createElement('section');
@@ -8,7 +7,7 @@ export default () => {
   const viewLogin = `
 
   <section class="secLogoLogin">
-    <img class="logoLogin" src="img/logo_muñeca.png" alt="Logo3B" />    
+    <img class="logoLogin" src="img/logo_muñeca.png" alt="Logo3B" />
     <h1>¡Bienvenidos a <strong>3B</strong>!</h1>
   </section>
   <form class="loginform" id="login">
@@ -32,14 +31,16 @@ export default () => {
           <p class="optionRegisterText">No tienes una cuenta?
           <a class="formLink" href="#/registrate" id="linkCreateAccount"><span>Registrate<span></a>
           </p>
-      </section>   
+      </section>
   </form>`;
 
   loginSection.innerHTML = viewLogin;
-  // document.getElementById('container').appendChild(secElement);
+
   const login = loginSection.querySelector('#loginFormBtn');
+  // funcionalidad para boton
   login.addEventListener('click', (event) => {
     event.preventDefault();
+    // declarando  variables
     const loginEmail = loginSection.querySelector('#loginEmail').value;
     const loginPassword = loginSection.querySelector('#loginPassword').value;
     console.log(loginEmail, loginPassword);
@@ -52,12 +53,12 @@ export default () => {
       .then((result) => {
         // Signed in
         const user = result.user;
-        console.log(user);
-        const displayName = user.multiFactor.user.displayName;
-        console.log(user.multiFactor.user.displayName, 63);
+        // console.log(user, 61);
+        // console.log(user.multiFactor, 62);
+        // console.log(user.multiFactor.user, 63);
+        // console.log(user.emailVerified, 64);
+
         if (user.emailVerified) {
-          // eslint-disable-next-line no-alert
-          alert(`Bienvenida ${displayName}`);
           window.location.hash = '#/profile';
           // saveUser(user);
         } else {
@@ -99,35 +100,27 @@ export default () => {
   });
   const btnLoginGoogle = loginSection.querySelector('.loginGoogleImg');
 
-  /* const validarEmail = () => {
-    validationEmail().then(() => {
-      // eslint-disable-next-line no-alert
-      alert('se envio mensaje de verificacion');
-    }).catch((e) => {
-      console.log(e);
-    });
-  };
-  */
+  // const validarEmail = () => {
+  //   validationEmail().then(() => {
+  //     // eslint-disable-next-line no-alert
+  //     alert('se envio mensaje de verificacion');
+  //   }).catch((e) => {
+  //     console.log(e);
+  //   });
+  // };
 
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    loginGoogle()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        const displayName = user.multiFactor.user.displayName;
-        const photoURL = user.photoURL;
-        console.log(photoURL);
-        console.log(displayName);
-        // getUser();
-        // validarEmail();
-        if (user.emailVerified) {
-        // eslint-disable-next-line no-alert
-          alert(`Bienvenida ${displayName}`);
-          window.location.hash = '#/profile';
-        }
+    loginGoogle().then((result) => {
+      console.log(result.user.emailVerified);
+      if (result.user.emailVerified) {
         window.location.hash = '#/profile';
-      });
+      } else {
+        window.location.hash = '#/';
+      }
+    }).catch((error) => {
+      console.log(error);
+    });
   });
 
   return loginSection;

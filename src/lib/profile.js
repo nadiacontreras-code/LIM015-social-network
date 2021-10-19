@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { getCurrentUser } from '../firebase/firebase-fn.js';
 
 export default () => {

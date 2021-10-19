@@ -16,23 +16,9 @@ export const loginGoogle = () => {
     .signInWithPopup(providerGoogle);// popup para seleccionar cuenta google
   return loginwithGoogle;
 };
+/* **********Función para cerrar sesión con google********** */
 export const logOut = () => {
   firebase.auth().signOut();
-};
-
-// -------- FUNCIÓN QUE CONTIENE INFORMACIÓN EN UN OBJETO DEL CURRENT USER --------//
-export const getCurrentUser = () => {
-  const user = firebase.auth().currentUser;
-  let dataUser = '';
-  if (user != null) {
-    dataUser = {
-      name: user.displayName,
-      photo: user.photoURL,
-      uid: user.uid,
-    };
-  }
-  /* console.log(dataUser); */
-  return dataUser;
 };
 
 export const userSessionActive = (callback) => firebase.auth().onAuthStateChanged(callback);
@@ -41,4 +27,18 @@ export const userSessionActive = (callback) => firebase.auth().onAuthStateChange
 export const uploadImage = (imgFile, directory) => {
   const storageRef = firebase.storage().ref(`${directory}/${imgFile.name}`);
   return storageRef.put(imgFile);
+};
+// -------- FUNCIÓN QUE CONTIENE INFORMACIÓN EN UN OBJETO DEL CURRENT USER --------//
+export const getCurrentUser = () => {
+  const user = firebase.auth().currentUser;
+  let dataUser = '';
+  if (user !== null) {
+    dataUser = {
+      name: user.displayName,
+      photo: user.photoURL,
+      uid: user.uid,
+      email: user.email,
+    };
+  }
+  return dataUser;
 };
