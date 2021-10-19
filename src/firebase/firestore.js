@@ -33,9 +33,9 @@ export const createPost = (postText, photoPost, emailPost, uidPost) => {
   });
 };
 /* funcion para traer todos los post */
-export const getPost = (id) => db.collection('postPruebaNadia')
-  .where('uid', '==', id).orderBy('time', 'desc')
-  .get();
+export const getEachPostUser = (id) => db.collection('postPruebaNadia')
+  .where('uid', '==', id).orderBy('time', 'desc');
+// .get();
 
 // Metodo  (snapshot)
 export const onSnapShot = () => {
