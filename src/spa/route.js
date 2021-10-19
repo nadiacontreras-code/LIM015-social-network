@@ -14,9 +14,18 @@ const changeView = (route) => {
     case '#/registrate':
       return container.appendChild(components.registro());
     case '#/profile':
-      return container.appendChild(components.navegador())
-        && container.appendChild(components.profile())
-        && container.appendChild(components.publication());
+      return firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          return container.appendChild(components.navegador())
+            && container.appendChild(components.profile())
+            && container.appendChild(components.publication());
+        }
+        // User is signed out
+        console.log('ha cerrado sesión');
+        return container.appendChild(components.login());
+      });
+
     default:
       return container.appendChild(components.different());
   }

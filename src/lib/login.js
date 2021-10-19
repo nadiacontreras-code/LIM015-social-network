@@ -1,4 +1,4 @@
-import { loginGoogle, loginUser, validationEmail } from '../firebase/firebase-fn.js';
+import { loginGoogle, loginUser } from '../firebase/firebase-fn.js';
 
 export default () => {
   const loginSection = document.createElement('section');
@@ -6,7 +6,7 @@ export default () => {
   const viewLogin = `
 
   <section class="secLogoLogin">
-    <img class="logoLogin" src="img/logo_muñeca.png" alt="Logo3B" />    
+    <img class="logoLogin" src="img/logo_muñeca.png" alt="Logo3B" />
     <h1>¡Bienvenidos a <strong>3B</strong>!</h1>
   </section>
   <form class="loginform" id="login">
@@ -52,11 +52,12 @@ export default () => {
       .then((result) => {
         // Signed in
         const user = result.user;
-        const displayName = user.multiFactor.user.displayName;
-        // console.log(user.multiFactor.user.displayName, 63);
+        // console.log(user, 61);
+        // console.log(user.multiFactor, 62);
+        // console.log(user.multiFactor.user, 63);
+        // console.log(user.emailVerified, 64);
+
         if (user.emailVerified) {
-          // eslint-disable-next-line no-alert
-          alert(`Bienvenida ${displayName}`);
           window.location.hash = '#/profile';
         } else {
           messageError(0, 'Por favor realiza la verificación de la cuenta en tu correo electrónico');
@@ -97,20 +98,24 @@ export default () => {
   });
   const btnLoginGoogle = loginSection.querySelector('.loginGoogleImg');
 
-  const validarEmail = () => {
-    validationEmail().then(() => {
-      // eslint-disable-next-line no-alert
-      alert('se envio mensaje de verificacion');
-    }).catch((e) => {
-      console.log(e);
-    });
-  };
+  // const validarEmail = () => {
+  //   validationEmail().then(() => {
+  //     // eslint-disable-next-line no-alert
+  //     alert('se envio mensaje de verificacion');
+  //   }).catch((e) => {
+  //     console.log(e);
+  //   });
+  // };
 
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    loginGoogle().then(() => {
-      validarEmail();
-      window.location.hash = '#/profile';
+    loginGoogle().then((result) => {
+      console.log(result.user.emailVerified);
+      if (result.user.emailVerified) {
+        window.location.hash = '#/profile';
+      } else {
+        window.location.hash = '#/';
+      }
     }).catch((error) => {
       console.log(error);
     });
