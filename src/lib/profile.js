@@ -14,10 +14,10 @@ export default () => {
               <textarea placeholder="Cuéntanos sobre ti..." id="post"></textarea>
           </article>
       </article>
-      <form class="formPost">
+      <!-- <form class="formPost">
           <img class="userPhotoFeed" src="${photo === null ? '../img/chica.jpg' : photo}" width= "80" alt="userPhoto">
-          <h2 class="user-name profile-name" id="nameUserProfile">${name}</h2>
-      </form>
+           <h2 class="user-name profile-name" id="nameUserProfile">${name}</h2>
+      </form>-->
     </main>
     `;
 

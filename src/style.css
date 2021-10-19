@@ -268,7 +268,80 @@ nav ul li {
   margin-right: 6px;
   font-family: "Roboto", sans-serif;
 }
-
+/*************************AREA PARA PUBLICAR*****************************************/
+.postBoxWrite {
+  flex-direction: column;
+  background-color: rgba(184, 0, 51, 0.34);
+  padding: 10px;
+  border-radius: 15px;
+}
+.userWhoPost {
+  display: flex;
+}
+#userPhoto {
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+}
+.userName {
+  *margin-top: 20px;
+  display: flex;
+  *margin: 0px 10px;
+  align-self: center;
+  font-weight: 500;
+}
+#contentTextPost {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  resize: none;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgba(255, 251, 252, 0.5);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+#compartirPost {
+  width: 120px;
+  margin: 10px 10px 10px 160px;
+  padding: 5px;
+  border-radius: 7px;
+  border: 1px white;
+  background-color: #b80033;
+  color: white;
+  cursor: pointer;
+  *align-self: flex-end;
+}
+/*************************TODAS LAS PUBLICACIONES*******************************/
+.publicPost {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px 5px;
+  background-color: rgba(184, 0, 51, 0.3);
+  border-radius: 15px;
+  padding: 15px;
+}
+#userWhoPosted {
+  display: flex;
+  flex-direction: column;
+}
+.infoUserWhoPosted {
+  display: flex;
+  grid-template-columns: 1fr 25fr;
+}
+.textPosted {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(255, 251, 252, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.05em;
+}
+.datePosted {
+  color: gray;
+}
 /*************************FOOTER*****************************************/
 .footer {
   background-color: #ceccf3;
