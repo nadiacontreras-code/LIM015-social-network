@@ -39,6 +39,41 @@ export default () => {
   <section class="publicPost"></section>`;
 
   writeAndReadPost.innerHTML = textToPost;
+  /* PARA MOSTRAR LAS PUBLICACIONES HECHAS */
+  const getPost = () => {
+    const collection = getEachPostUser(uniqueId);
+    const publicPost = writeAndReadPost.querySelector('.publicPost');
+    collection.onSnapshot((item) => {
+      publicPost.innerHTML = '';
+      item.forEach((doc) => {
+        console.log(doc.id, ' => ', doc.data());
+        console.log(doc.data().post);
+        const readPostSection = document.createElement('section');
+        readPostSection.innerHTML = `
+      <!-- SECCION DE  PUBLICACIONES / LO QUE SE POSTEO TODOS-->
+      <section id="wallAllPost">
+        <section class="eachPost">
+          <section id="userWhoPosted">
+          <p>${name == null ? email : name}</p>
+          </section>
+          <section id="userContentPosted">
+            <p id='${doc.id}'>${doc.data().post}</p>
+            <p id='${doc.id}'>${doc.data().time}</p>
+          </section>
+          <section id="likeToPost">
+          <button type="button" id='${doc.id}' class="btnLike">Like </button>
+          <p type="text">0</p>
+          </section>
+        </section>
+      </section>`;
+
+        // console.log(publicPost);
+        // publicPost.innerHTML += readPost;
+        publicPost.appendChild(readPostSection);
+      });
+    });
+  };
+  getPost();
 
   const btnCompartir = writeAndReadPost.querySelector('#compartirPost');
   // console.log(btnCompartir);
@@ -66,21 +101,20 @@ export default () => {
           .catch((error) => {
             console.error(`Error creando el post => ${error}`);
           });
+        getPost();
       };
       createPost(contentTextPost, photo, email, uniqueId);
       writeAndReadPost.querySelector('#contentTextPost').value = '';
     }
   });
 
-  /* PARA MOSTRAR LAS PUBLICACIONES HECHAS */
-
-  getEachPostUser(uniqueId).then((querySnapshot) => {
+  /* getEachPostUser(uniqueId).then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, ' => ', doc.data());
       console.log(doc.data().post);
-      /* getPost(uniqueId).onSnapShot((querySnapshot) => {
-      querySnapshot.forEach((post) => { */
+      // getEachPostUser(uniqueId).onSnapshot((querySnapshot) => {
+    //querySnapshot.forEach((doc) => {
       const readPost = `
             <!-- SECCION DE  PUBLICACIONES / LO QUE SE POSTEO TODOS-->
             <section id="wallAllPost">
@@ -104,7 +138,7 @@ export default () => {
   })
     .catch((error) => {
       console.log('Error: ', error);
-    });
+    }); */
   // });
   return writeAndReadPost;
 };
