@@ -1,7 +1,4 @@
 import { getCurrentUser } from '../firebase/firebase-fn.js';
-// import Publication from './publication.js';
-// console.log(templatePost());
-// import { addDocPost, listPostAll, uploadFile } from '../firebase/firebaseStore.js';
 
 export default () => {
   const photo = getCurrentUser().photo;
