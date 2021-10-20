@@ -7,8 +7,8 @@ export default () => {
   <!--<header creado-->
   <nav class="navegador">
     <ul class="navegadorList">
-      <li><a href="#/profile">perfil</a></li>
-      <li>3B</li>
+      <li><a href="#/profile"><strong>perfil</strong></a></li>
+      <li><strong>3B</strong></li>
       <li><button type="button" class="logoutBtn">Cerrar Sesión</button></li>
     </ul>
   </nav>

@@ -181,6 +181,7 @@ label {
   margin: 0px;
   padding-left: 20px;
   padding-right: 20px;
+  font-size: 22px;
 }
 
 /*ul.navegadorList */
@@ -194,7 +195,7 @@ nav ul li {
   list-style: none;
   display: flex;
   float: right;
-  background-color: white;
+  background-color:  #f29bf3e5;
   margin: 20px;
   text-align: center;
   height: 100%;
@@ -204,7 +205,7 @@ nav ul li {
   width: auto;
   *align-content: center;
   *align-items: center;
-  font-size: 100%; /******/
+  font-size: 95%; /******/
   font-family: "Roboto", sans-serif;
   color: white;
   border-radius: 2em;
@@ -236,6 +237,19 @@ nav ul li {
   display: flex;
   flex-direction: column;
   width: 50%;
+}
+#photoPortada {
+  display: none;
+  display: flex;
+  margin: 10px;
+  padding: 15px;
+  width: 87%;
+
+  left: 45px;
+  top: 229px;
+
+  background: rgba(242, 5, 92, 0.4);
+  border-radius: 10px;
 }
 
 #imgPortada {
