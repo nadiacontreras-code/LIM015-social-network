@@ -51,7 +51,7 @@ export const onSnapshot2 = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      console.log("Todos los datos de la colección 'libros'", datos);
+      console.log("Todos los datos de la colección 'postPruebaNadia'", datos);
     });
 };
 onSnapshot2();
