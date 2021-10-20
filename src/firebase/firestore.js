@@ -68,31 +68,3 @@ console.log(onSnapshot2()); */
     //  });
     //  return nuevoDato;
   }); */
-
-/* export const listPostAll = (callback) => firebase.firestore().collection('postPruebaNadia')
-.orderBy('time', 'desc').onSnapshot((querySnapshot) => {
-  const post = [];
-  querySnapshot.forEach((doc) => {
-    // console.log(doc);
-    post.push({ id: doc.id, ...doc.data() });
-  });
-  callback(post);
-  // console.log('Posts: ', post.join(', '));
-});
-console.log(listPostAll()); */
-/* export const getUserInfo = () => {
-  db.collection('pruebaNadia')
-    .get()
-    .then((docRef) => {
-      docRef.forEach((doc) => {
-        console.log(`${doc.id}=>${JSON.stringify(doc.data().name)}`);
-      });
-      console.log('Document written with ID: ', docRef.id);
-      console.log(docRef);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
-}; */
-// getUserInfo();
-// catchUserInfo();
