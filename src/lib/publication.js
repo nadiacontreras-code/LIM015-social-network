@@ -75,7 +75,7 @@ export default () => {
         <section id="userWhoPosted">
           <section class="infoUserWhoPosted">
             <img id ="userPhoto" src= ${doc.photo === null ? '../img/chica.jpg' : doc.photo} width="20px" height="20px" alt="Foto de perfil">
-            <p class="userName">${doc.email}</p>
+            <p class="userName">${doc.name === undefined ? doc.email : doc.name}</p>
             </section>
           <section id="userContentPosted">
             <p id='${doc.uid}' class="textPosted">${doc.post}</p>
@@ -154,6 +154,7 @@ export default () => {
           photo: photoPost,
           email: emailPost,
           uid: uidPost,
+          // name: namePost,
         })
           .then(() => {
             console.log('publicacion exitosa');
@@ -164,7 +165,7 @@ export default () => {
 
         getPost();
       };
-      createPost(contentTextPost, photo, email, uniqueId);
+      createPost(contentTextPost, photo, email, uniqueId, name);
       writeAndReadPost.querySelector('#contentTextPost').value = '';
     }
   });

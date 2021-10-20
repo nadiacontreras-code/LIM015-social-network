@@ -17,7 +17,7 @@ export const catchUserInfo = (captureName, captureLastName, captureEmail, captur
 };
 
 /* **********Función para crear y guardar post en la base de datos********** */
-export const createPost = (postText, photoPost, emailPost, uidPost) => {
+export const createPost = (postText, photoPost, emailPost, uidPost, namePost) => {
   // const fieldValue = firebase.firestore.FieldValue;
   db.collection('postPruebaNadia').doc().set({
     post: postText,
@@ -25,6 +25,7 @@ export const createPost = (postText, photoPost, emailPost, uidPost) => {
     photo: photoPost,
     email: emailPost,
     uid: uidPost,
+    name: namePost,
     /* }).then(() => {
       console.log('publicacion exitosa');
     })
