@@ -38,12 +38,7 @@ export const getEachPostUser = (id) => db.collection('postPruebaNadia')
 // .get();
 
 // Metodo  (snapshot)
-export const onSnapShot = () => {
-  const getPostOnFirestore = db.collection('postPruebaNadia').onSnapshot();
-  console.log(getPostOnFirestore);
-  return getPostOnFirestore;
-};
-export const onSnapshot2 = () => {
+/* export const onSnapshot2 = () => {
   db.collection('postPruebaNadia')
     .onSnapshot((resultados) => {
       console.log(resultados.docs);
@@ -51,24 +46,25 @@ export const onSnapshot2 = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      console.log("Todos los datos de la colección 'libros'", datos);
+      console.log("Todos los datos de la colección 'postPruebaNadia'", datos);
+      datos.forEach((doc) => {
+        console.log(doc.id);
+      });
     });
 };
-onSnapshot2();
-
-/* export const getUserInfo = () => {
-  db.collection('pruebaNadia')
-    .get()
-    .then((docRef) => {
-      docRef.forEach((doc) => {
-        console.log(`${doc.id}=>${JSON.stringify(doc.data().name)}`);
-      });
-      console.log('Document written with ID: ', docRef.id);
-      console.log(docRef);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
-}; */
-// getUserInfo();
-// catchUserInfo();
+console.log(onSnapshot2()); */
+/* export const allPost = () => db.collection('postPruebaNadia')
+  .onSnapshot((resultados) => {
+    console.log(resultados.docs);
+    const datos = resultados.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return datos;
+    //   console.log("Todos los datos de la colección 'postPruebaNadia'", datos);
+    //  const nuevoDato = datos.map((item) => {
+    //    console.log(item.post);
+    //    return item.post;
+    //  });
+    //  return nuevoDato;
+  }); */
