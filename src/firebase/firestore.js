@@ -38,12 +38,7 @@ export const getEachPostUser = (id) => db.collection('postPruebaNadia')
   .orderBy('time', 'desc');
 
 // Metodo  (snapshot)
-export const onSnapShot = () => {
-  const getPostOnFirestore = db.collection('postPruebaNadia').onSnapshot();
-  console.log(getPostOnFirestore);
-  return getPostOnFirestore;
-};
-export const onSnapshot2 = () => {
+/* export const onSnapshot2 = () => {
   db.collection('postPruebaNadia')
     .onSnapshot((resultados) => {
       console.log(resultados.docs);
@@ -52,10 +47,39 @@ export const onSnapshot2 = () => {
         ...doc.data(),
       }));
       console.log("Todos los datos de la colección 'postPruebaNadia'", datos);
+      datos.forEach((doc) => {
+        console.log(doc.id);
+      });
     });
 };
-onSnapshot2();
+console.log(onSnapshot2()); */
+/* export const allPost = () => db.collection('postPruebaNadia')
+  .onSnapshot((resultados) => {
+    console.log(resultados.docs);
+    const datos = resultados.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return datos;
+    //   console.log("Todos los datos de la colección 'postPruebaNadia'", datos);
+    //  const nuevoDato = datos.map((item) => {
+    //    console.log(item.post);
+    //    return item.post;
+    //  });
+    //  return nuevoDato;
+  }); */
 
+/* export const listPostAll = (callback) => firebase.firestore().collection('postPruebaNadia')
+.orderBy('time', 'desc').onSnapshot((querySnapshot) => {
+  const post = [];
+  querySnapshot.forEach((doc) => {
+    // console.log(doc);
+    post.push({ id: doc.id, ...doc.data() });
+  });
+  callback(post);
+  // console.log('Posts: ', post.join(', '));
+});
+console.log(listPostAll()); */
 /* export const getUserInfo = () => {
   db.collection('pruebaNadia')
     .get()
