@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/named
-import { getCurrentUser } from '../firebase/firebase-fn.js';
+import { getCurrentUser, getDate } from '../firebase/firebase-fn.js';
 import { getEachPostUser } from '../firebase/firestore.js';
 // import { createPost, getPost, getCurrentUser } from '../firebase/firebase-fn.js';
 
@@ -41,7 +41,7 @@ export default () => {
   writeAndReadPost.innerHTML = textToPost;
   /* PARA MOSTRAR LAS PUBLICACIONES HECHAS */
   const getPost = () => {
-    const collection = getEachPostUser(email);
+    const collection = getEachPostUser(uniqueId);
     const publicPost = writeAndReadPost.querySelector('.allPublicPost');
     collection.onSnapshot((item) => {
       publicPost.innerHTML = '';
@@ -58,7 +58,7 @@ export default () => {
             </section>
           <section id="userContentPosted">
             <p id='${doc.id}' class="textPosted">${doc.data().post}</p>
-            <p id='${doc.id}' class="datePosted">${doc.data().time.toDate()}</p>
+            <p id='${doc.id}' class="datePosted">${getDate(doc.data().time.toDate())}</p>
           </section>
           <section id="likeToPost">
           <button type="button" id='${doc.id}' class="btnLike">Like </button>
