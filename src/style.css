@@ -212,18 +212,30 @@ nav ul li {
 }
 
 /************************PERFIL******************************************/
-#photoPortada {
+.userImage {
   display: none;
   display: flex;
   margin: 10px;
   padding: 15px;
-  width: 87%;
+  width: 43%;
 
-  left: 45px;
-  top: 229px;
+  left: 22px;
+  top: 22px;
 
-  background: rgba(242, 5, 92, 0.4);
-  border-radius: 10px;
+  background: rgba(243, 201, 216, 0.4);
+  border-radius: 210px;
+}
+#user-info {
+  display: flex;
+  flex-direction: row;
+  background-color: #d3057d;
+  padding: 20px;
+  width: 100%;
+}
+.user-information{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 #imgPortada {
