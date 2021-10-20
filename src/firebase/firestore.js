@@ -90,8 +90,13 @@ export const deletePost = (id) => db.collection('postPruebaNadia').doc(id).delet
   });
 }; */
 
+
 export function updatePosts() {
   return db.collection('postPruebaNadia').doc(uid).update({
+
+export function updatePosts(postText) {
+  return db.collection('postPruebaNadia').doc(doc.uid).update({
+
     post: postText,
     time: new Date().toLocaleString('en-ES'),
   }).then(() => {

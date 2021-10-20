@@ -111,6 +111,7 @@ export default () => {
 
           const btnEdit = readPostSection.querySelector('.btnEdit');
 
+
           btnEdit.addEventListener('click', () => {
             const idPost = doc.uid;
             const publication = writeAndReadPost.querySelector('#contentTextPost');
@@ -131,6 +132,7 @@ export default () => {
           });
           publicPost.appendChild(readPostSection);
         });
+
       });
   };
   getPost();
