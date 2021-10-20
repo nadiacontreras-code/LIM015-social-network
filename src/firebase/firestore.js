@@ -74,7 +74,7 @@ export const editarPosts = (postText, photoPost, emailPost, uidPost) => {
   });
 };
 
-export function updatePosts() {
+export function updatePosts(postText) {
   return db.collection('postPruebaNadia').doc(doc.uid).update({
     post: postText,
     time: new Date().toLocaleString('en-ES'),

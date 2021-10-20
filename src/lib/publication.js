@@ -64,7 +64,7 @@ export default () => {
             </section>
           <section id="userContentPosted">
             <p id='${doc.id}' class="textPosted">${doc.data().post}</p>
-            <p id='${doc.id}' class="datePosted">${getDate(doc.data().time.toDate())}</p>
+            <p id='${doc.id}' class="datePosted">${doc.data().time}</p>
           </section>
           <section id="likeToPost">
           <button type="button" id='${doc.id}' class="btnLike">Like </button>
@@ -88,7 +88,7 @@ export default () => {
         const btnEdit = readPostSection.querySelector('.btnEdit');
 
         btnEdit.addEventListener('click', () => {
-          const idPost = doc.data().uid;
+          // const idPost = doc.data().uid;
           const publication = writeAndReadPost.querySelector('#contentTextPost');
           // publication.readOnly = false;
           const btnGuardar = writeAndReadPost.querySelector('#compartirPost');
@@ -98,44 +98,13 @@ export default () => {
 
           btnGuardar.addEventListener('click', () => {
             const nuevoText = writeAndReadPost.querySelector('#contentTextPost').value;
-            const actualizacionpost = updatePosts(idPost, nuevoText);
+            const actualizacionpost = updatePosts(nuevoText);
             /* .then(() => {
                 publication.innerHTML = nuevoText;
               }); */
             return actualizacionpost;
           });
         });
-
-        // editar post
-        /*  function editar(id, newpost) {
-          // eslint-disable-next-line no-param-reassign
-          id = doc.data().uid;
-          newpost = writeAndReadPost.querySelector('#contentTextPost');
-          newpost.value = doc.data().post;
-          const boton = writeAndReadPost.querySelector('#compartirPost');
-
-          boton.addEventListener(() => {
-            const collectionPostEdit = firebase().firestore().collection('postPruebaNadia').doc(id);
-            const postedit = writeAndReadPost.querySelector('#contentTextPost').value;
-
-            return collectionPostEdit.update({
-              id: doc.id,
-              post: postedit,
-            }).then(() => {
-              console.log('Documento editado');
-              boton.innerHTML = 'Guardar';
-              writeAndReadPost.querySelector('#contentTextPost').value = '';
-            }).catch((error) => {
-              console.error('Error updating document: ', error);
-            });
-          });
-        }
-
-        btnEdit.addEventListener('click', () => {
-          editar();
-        }); */
-        // console.log(publicPost);
-        // publicPost.innerHTML += readPost;
         publicPost.appendChild(readPostSection);
       });
     });
