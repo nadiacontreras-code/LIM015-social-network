@@ -30,42 +30,41 @@ export default () => {
   writeAndReadPost.className = 'userCreateAndReadPost';
 
   const textToPost = `
-  <section class='userPost' >
+  <section class="postBoxWrite" id="postWrite">
     <section class="userWhoPost">
-      <p>${name == null ? email : name}</p>
+      <img id="userPhoto" src= ${photo === null ? '../img/chica.jpg' : photo} width="40px" height="40px" alt="Foto de perfil">
+      <p class="userName">${name == null ? email : name}</p>
     </section>
     <section class="userContentPost">
-        <p class='currentUser'>Realiza una Publicación</p>
-        <textarea id='contentTextPost'class='postArea' type="text"  maxlength="200" placeholder="Que deseas Compartir hoy ..."></textarea>
-        <button type="button" id='compartirPost'>Compartir</button>
-        <section class="emojies">
-          <img src="" alt="">reaccionLike
-        </section>
+          <textarea id='contentTextPost'class='postArea' type="text" cols="20" row="20"  maxlength="200" placeholder="¿Que deseas compartir hoy?"></textarea>
+          <button type="button" id='compartirPost'>Compartir</button>
     </section>
+    <section class="emojies"> </section>
   </section>
-  <section class="publicPost"></section>`;
+  <!-- SECCION DE  PUBLICACIONES / LO QUE SE POSTEO TODOS-->
+  <section class="allPublicPost"></section>`;
 
   writeAndReadPost.innerHTML = textToPost;
   /* PARA MOSTRAR LAS PUBLICACIONES HECHAS */
   const getPost = () => {
     const collection = getEachPostUser(uniqueId);
-    const publicPost = writeAndReadPost.querySelector('.publicPost');
+    const publicPost = writeAndReadPost.querySelector('.allPublicPost');
     collection.onSnapshot((item) => {
       publicPost.innerHTML = '';
       item.forEach((doc) => {
         console.log(doc.id, ' => ', doc.data());
         console.log(doc.data().post);
         const readPostSection = document.createElement('section');
+        readPostSection.className = 'publicPost';
         readPostSection.innerHTML = `
-      <!-- SECCION DE  PUBLICACIONES / LO QUE SE POSTEO TODOS-->
-      <section id="wallAllPost">
-        <section class="eachPost">
-          <section id="userWhoPosted">
-          <p>${name == null ? email : name}</p>
-          </section>
+        <section id="userWhoPosted">
+          <section class="infoUserWhoPosted">
+            <img id ="userPhoto" src= ${photo === null ? '../img/chica.jpg' : photo} width="20px" height="20px" alt="Foto de perfil">
+            <p class="userName">${name == null ? email : name}</p>
+            </section>
           <section id="userContentPosted">
-            <p id='${doc.id}'>${doc.data().post}</p>
-            <p id='${doc.id}'>${doc.data().time}</p>
+            <p id='${doc.id}' class="textPosted">${doc.data().post}</p>
+            <p id='${doc.id}' class="datePosted">${getDate(doc.data().time.toDate())}</p>
           </section>
           <section id="likeToPost">
           <button type="button" id='${doc.id}' class="btnLike">Like </button>
@@ -73,8 +72,7 @@ export default () => {
           <button type="button" id='${doc.id}' class="btnEdit" >Edit </button>
           <p type="text">0</p>
           </section>
-        </section>
-      </section>`;
+        </section>`;
 
         const btnDelete = readPostSection.querySelector('.btnDelete');
         // eliminar post
