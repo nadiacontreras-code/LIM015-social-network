@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const db = firebase.firestore();
 export const catchUserInfo = (captureName, captureLastName, captureEmail, captureUid) => {
   db.collection('UserPruebaNadia').add({
@@ -67,4 +68,35 @@ console.log(onSnapshot2()); */
     //    return item.post;
     //  });
     //  return nuevoDato;
-  }); */
+  });
+    });
+}; */
+
+// para eliminar post
+export const deletePost = (id) => db.collection('postPruebaNadia').doc(id).delete()
+  .then(() => console.log('Documento borrado')) // Documento borrado
+  .catch((error) => console.error('Error eliminando documento', error));
+
+// para editar post
+/* export const editarPosts = (postText, photoPost, emailPost, uidPost) => {
+  const dataPost = db.collection('postPruebaNadia').doc();
+  return dataPost.update({
+    post: postText,
+    time: firebase.firestore.FieldValue.serverTimestamp(),
+    photo: photoPost,
+    email: emailPost,
+    uid: uidPost,
+  });
+}; */
+
+export function updatePosts() {
+  return db.collection('postPruebaNadia').doc(uid).update({
+    post: postText,
+    time: new Date().toLocaleString('en-ES'),
+  }).then(() => {
+    console.log('post actualizado');
+  })
+    .catch((error) => {
+      console.error('ocurrio un error al actualizar el post', error);
+    });
+}
